@@ -11,10 +11,13 @@ html{
 body{
 	line-height: 2;
 	font-size: 1.60rem;
+	font-family: 'Poppins', sans-serif;
 }
 
 nav{
 	height: 100vh;
+	align-items: center;
+	text-align: center;
 }
 
 .text-center{
@@ -29,7 +32,7 @@ li{
 
 a{
 	text-decoration: none;
-	color: #e5e5e5;
+	color: #fff;
 }
 
 .color-nav{
@@ -61,8 +64,12 @@ ul{
 
 .columnas-avatar-nav{
 	display: grid;
-	grid-template-columns: 29% 51%;
+	grid-template-columns: 29% 55%;
 	margin-top: 1.4em;
+}
+
+.active{
+	font-weight: 700;
 }
 
 .active p::after{
@@ -74,9 +81,13 @@ ul{
 	margin-top: .3rem;
 }
 
+#nombreUsuario{
+	font-weight: 500;
+}
+
 #text-area{
-	border-radius: 2em 0 0 2em;
-	width: 80%;
+	border-radius: 2.5em 0 0 2.5em;
+	width: 90%;
 	height: 100vh;
 	background-color: #fff;
 	color: #000;
@@ -93,8 +104,8 @@ ul{
 }
 
 a:hover{
-	color: #fff;
-	font-size: 1.70rem;
+	color: #000;
+	font-weight: bold;
 	text-decoration: none;
 }
 
@@ -124,6 +135,7 @@ a:hover{
 
 	nav{
 		width: 10%;
+		font-weight: 400;
 	}
 
 	#text-area{
