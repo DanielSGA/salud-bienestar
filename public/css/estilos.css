@@ -1,0 +1,133 @@
+/* GLOBALES */
+html{
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+,:before, *:after{
+	box-sizing: inherit;
+}
+
+body{
+	line-height: 2;
+	font-size: 1.60rem;
+}
+
+nav{
+	height: 100vh;
+}
+
+.text-center{
+	text-align: center;
+	align-items: center;
+}
+
+li{
+	list-style: none;
+	margin-top: 1em;
+}
+
+a{
+	text-decoration: none;
+	color: #e5e5e5;
+}
+
+.color-nav{
+	background-color: #0374b9;
+	z-index: -1;
+}
+
+ul{
+	padding: 0;
+	margin-top: 3.5em;
+}
+
+.unEm{
+	padding-right: 1em;
+}
+
+#logo-nav{
+	margin-top: 3em;
+	width: 8em;
+	height: 8em;
+	border-radius: 5;
+}
+
+#avatar-nav{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.columnas-avatar-nav{
+	display: grid;
+	grid-template-columns: 29% 51%;
+	margin-top: 1.4em;
+}
+
+.active p::after{
+	content: "";
+	display: block;
+	width: 4rem;
+	height: .5rem;
+	background-color: #e5e5e5;
+	margin-top: .3rem;
+}
+
+#text-area{
+	border-radius: 2em 0 0 2em;
+	width: 80%;
+	height: 100vh;
+	background-color: #fff;
+	color: #000;
+}
+
+.columnas-pagina-nav-textArea{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+}
+
+.navbar-brand{
+	margin-right: 0;
+}
+
+a:hover{
+	color: #fff;
+	font-size: 1.70rem;
+	text-decoration: none;
+}
+
+/* HOME */
+.columnas-display-grid{
+	display: grid;
+	grid-template-columns: 42% 0%;
+	/* Tambien se puede poner 1fr y 1fr 
+		o repeat(2, 50%) o repeat(2, 1fr)*/
+	/*grid-column-gap: 2rem; */
+}
+
+@media (max-width: 760px){
+	.texto-nav{
+		display: none;
+	}
+
+	#logo-nav{
+		height: 3em;
+		width: 3em;
+	}
+
+	.columnas-display-grid, .columnas-avatar-nav{
+		display: grid;
+		grid-template-columns: 100% 0%;
+	}
+
+	nav{
+		width: 10%;
+	}
+
+	#text-area{
+		width: 90%;
+	}
+
+}
