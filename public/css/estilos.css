@@ -28,6 +28,7 @@ nav{
 li{
 	list-style: none;
 	margin-top: 1em;
+	color: #fff;
 }
 
 a{
@@ -142,4 +143,97 @@ a:hover{
 		width: 90%;
 	}
 
+}
+
+/* Al oprimir buscar */
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #0374b9;
+}
+
+.overlay .cerrarBusqueda{
+  float: left;
+  width: 10%;
+  padding: 1rem;
+  background: #0374b9;
+  font-size: 4rem;
+  border: none;
+}
+
+.overlay .overlay-fa{
+	float: left;
+	padding: 1rem;
+	background: #0374b9;
+	font-size: 4rem;
+	border: none;
+	background-color: #0374b9;
+}
+
+.cerrarBusqueda {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+#form{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+input{
+	height: 40%;
+	width: 80%;
+}
+
+.overlay-content {
+  position: relative;
+  width: 80%;
+  text-align: center;
+  margin-top: 3rem;
+  margin: auto;
+}
+
+#form{
+	position: initial;
+	margin: 50vh auto;
+}
+
+#form input{
+	background: transparent;
+	color: white;
+	border: none;
+	outline: none;
+	font-size: 4rem;
+}
+
+form input:placeholder{
+	color: white;
+}
+/* Fin buscador */
+
+
+/* Botones */
+.boton{
+	color: white;
+	font-weight: 700;
+	text-decoration: none;
+	background-color: purple;
+	font-size: 1.8rem;
+	padding: 1rem 3rem;
+	display: inline-block;
+	text-align: center;
+	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
+	flex: 0 0 100%;
+	border-radius: 20px;
 }

@@ -69,7 +69,28 @@
                                 <a href="" class="texto-nav"><p>Bibliotecas</p></a>
                             </div>
                         </li>
+                        <li class="columnas-display-grid">
+                            <div>
+                                <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
+                            </div>
+                                <!-- Al presionar el buscador se dezpliega esto-->
+                                <div class="overlay" id="overlay">
+                                    <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
+                                    <div class="overlay-content">
+                                        <form id="form" action="">
+                                            <input type="text" name="" placeholder="¿Qué par buscas?">
+                                            <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- End del buscador-->
+
+                        </li>
                     </ul>
+
 
                   
                     <!--Avatar -->
@@ -94,17 +115,30 @@
         <!-- Todo el contenido de la pagina va aqui-->
             <div id="text-area">
                 <div class="container-fluid">
-                    
+
+                    <div>
+                        <!-- Search bar -->
+                        <form class="form-inline d-flex justify-content-center md-form form-sm">
+                          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                            aria-label="Search">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </form>
+                        <!-- End Search bar-->
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Fin contenido-->
 
 
-
+        <!-- jQuery CDN -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <!-- JavaScript -->
         <script src="../js/scripts.js"></script>
     </body>
 
