@@ -1,0 +1,399 @@
+/* GLOBALES */
+html{
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+,:before, *:after{
+	box-sizing: inherit;
+}
+
+body{
+	line-height: 2;
+	font-size: 1.60rem;
+	font-family: 'Poppins', sans-serif;
+}
+
+nav{
+	height: 100vh;
+	align-items: center;
+	text-align: center;
+}
+
+.text-center{
+	text-align: center;
+	align-items: center;
+}
+
+li{
+	list-style: none;
+	margin-top: 1em;
+	color: #fff;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.color-nav{
+	background-color: #0374b9;
+	z-index: -1;
+}
+
+ul{
+	padding: 0;
+	margin-top: 3.5em;
+}
+
+h3{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+}
+
+.letras-rojas{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	color: #e72f6a;
+}
+
+h6{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+}
+
+p{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.unEm{
+	padding-right: 1em;
+}
+
+.padding1em{
+	padding: 0 1em;
+}
+
+.marginTop3em{
+	margin-top: 3.5em;
+}
+
+.marginTop2em{
+	margin-top: 1.5em;
+}
+
+.marginTop1em{
+	margin-top: 1em;
+}
+
+#logo-nav{
+	margin-top: 3em;
+	width: 8em;
+	height: 8em;
+	border-radius: 5;
+}
+
+#avatar-nav{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.columnas-avatar-nav{
+	display: grid;
+	grid-template-columns: 29% 55%;
+}
+
+.active{
+	font-weight: 700;
+}
+
+/* Rayita abajo de la pestaña activa*/
+.active p::after{
+	content: "";
+	display: block;
+	width: 6rem;
+	height: .5rem;
+	background-color: #e5e5e5;
+	margin-top: .3rem;
+}
+
+#nombreUsuario{
+	font-weight: 500;
+}
+
+#text-area{
+	border-radius: 2.5em 0 0 2.5em;
+	width: 90%;
+	background-color: #fff;
+	color: #000;
+}
+
+.columnas-pagina-nav-textArea{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+}
+
+.navbar-brand{
+	margin-right: 0;
+}
+
+a:hover{
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* HOME */
+.columnas-display-grid{
+	display: grid;
+	grid-template-columns: 34% 0%;
+	/* Tambien se puede poner 1fr y 1fr 
+		o repeat(2, 50%) o repeat(2, 1fr)*/
+	/*grid-column-gap: 2rem; */
+}
+
+@media (max-width: 760px){
+	.texto-nav{
+		display: none;
+	}
+
+	#logo-nav{
+		height: 3em;
+		width: 3em;
+	}
+
+	.columnas-display-grid, .columnas-avatar-nav{
+		display: grid;
+		grid-template-columns: 100% 0%;
+	}
+
+	nav{
+		width: 10%;
+		font-weight: 400;
+	}
+
+	#text-area{
+		width: 90%;
+	}
+
+}
+
+/* Al oprimir buscar */
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #0374b9;
+}
+
+.overlay .cerrarBusqueda{
+  float: left;
+  width: 10%;
+  padding: 1rem;
+  background: #0374b9;
+  font-size: 4rem;
+  border: none;
+}
+
+.overlay .overlay-fa{
+	float: left;
+	padding: 1rem;
+	background: #0374b9;
+	font-size: 4rem;
+	border: none;
+	background-color: #0374b9;
+}
+
+.cerrarBusqueda {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+#form{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+/*input{
+	height: 40%;
+	width: 80%;
+}*/
+
+.overlay-content {
+  position: relative;
+  width: 80%;
+  text-align: center;
+  margin-top: 3rem;
+  margin: auto;
+}
+
+#form{
+	position: initial;
+	margin: 50vh auto;
+}
+
+#form input{
+	background: transparent;
+	color: white;
+	border: none;
+	outline: none;
+	font-size: 4rem;
+}
+
+form input:placeholder{
+	color: white;
+}
+/* Fin buscador */
+
+/* Botones */
+.boton{
+	color: white;
+	font-weight: 600;
+	border: none;
+	text-decoration: none;
+	background-color: #E72F6A;
+	padding: 1rem 2rem;
+	text-align: center;
+	width: 9em;
+	height: 3em;
+	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
+	border-radius: 30px;
+}
+
+.btn-medio-ver-mas{
+	margin-top: 100%;
+}
+
+/* HOME */
+.columnas-home-agenda{
+	display: grid;
+	grid-template-columns: 44% 23% 16% 10%;
+	/* Tambien se puede poner 1fr y 1fr 
+		o repeat(2, 50%) o repeat(2, 1fr)*/
+	/*grid-column-gap: 1em;*/
+}
+
+.columnas-home-citas{
+	display: flex;
+	justify-content: space-around;
+}
+
+.publicaciones-flex{
+	display: flex;
+	justify-content: end;
+	flex-direction: row;
+}
+
+@media (min-width: 1097px){
+	.especialidades{
+		display: grid;
+		grid-template-columns: 28% 28% 28%;
+		text-align: center;
+	}
+
+	.especialidades div{
+		margin: 1em 1em;
+	}
+}
+
+@media (max-width: 1096px){
+	.columnas-home-agenda{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.marginTop3em{
+		margin-top: 3em;
+	}
+
+	.marginTop2em{
+		margin-top: 1em;
+	}
+
+	.especialidades{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		text-align: center;
+	}
+
+	.especialidades img, p{
+		margin: 0 .3em;
+	}
+
+	.seleccion-medico-home{
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		padding: 1em;
+		margin-top: 0;
+	}
+
+	.btn-medio-ver-mas{
+		margin: 5% 45%;
+		margin-bottom: 10%;
+	}
+}
+
+@media (max-width: 790px){
+	.columnas-home-citas{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.publicaciones-flex{
+		display: block;
+	}
+
+	.padding1em{
+		padding: 0;
+	}
+}
+
+
+@media (max-width: 790px){
+	.columnas-home-citas{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.publicaciones-flex{
+		display: block;
+	}
+
+	.padding1em{
+		padding: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

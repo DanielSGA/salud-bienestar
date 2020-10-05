@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Para que sea accesible y se ajuste al navegador web-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <!-- Font Awsome icons-->
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <!-- Para que sea unica la pagina en Google-->
+        <link rel="canonical" href="">
+
+        <title>ProSalud Home</title>
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- Minified CSS for awsome fonts -->
+        <link rel="stylesheet" type="text/css" href="../css/all.min.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/estilos.css">
+        <!-- Simbolo de pestaña ICO -->
+        <link rel="icon" type="image/png" href="../img/logo.ico">
+        <!-- Prevent Google from translate-->
+        <meta name="google" content="notranslate">
+    </head>
+
+    <body class=" color-nav">
+        <div class="columnas-pagina-nav-textArea">
+            <div>
+            <!-- NAVBAR -->
+                <nav class=" container-fluid color-nav text-center">
+                    <!-- Logo-->
+                    <div>
+                      <a class="navbar-brand" href="#">
+                        <img src="../img/logo-fondoB.svg" class="circulo-logo" id="logo-nav">
+                      </a>
+                    </div>
+                    <!--End Logo-->
+                    <ul>
+                        <li class="columnas-display-grid">
+                            <div>
+                                <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="" class="active texto-nav"><p>Inicio</p></a>
+                            </div>
+                        </li>
+                        <li class="columnas-display-grid">
+                            <div>
+                               <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
+                            </div>
+                            <div>
+                                <a href="" class="texto-nav"><p>Doctores</p></a>
+                            </div>
+                        </li>
+                        <li class="columnas-display-grid">
+                            <div>
+                                <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="" class="texto-nav"><p>Seguimiento</p></a>
+                            </div>
+                        </li>
+                        <li class="columnas-display-grid">
+                            <div>
+                                <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="" class="texto-nav"><p>Bibliotecas</p></a>
+                            </div>
+                        </li>
+                        <li class="columnas-display-grid">
+                            <div>
+                                <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
+                            </div>
+                                <!-- Al presionar el buscador se dezpliega esto-->
+                                <div class="overlay" id="overlay">
+                                    <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
+                                    <div class="overlay-content">
+                                        <form id="form" action="">
+                                            <input type="text" name="" placeholder="¿Qué médico busca?">
+                                            <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- End del buscador-->
+
+                        </li>
+                    </ul>
+
+
+                  
+                    <!--Avatar -->
+                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                        <li class="nav-item avatar columnas-avatar-nav">
+                            <div>
+                                <a class="nav-link p-0" href="#" id="avatar-nav">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                                </a>
+                            </div>
+                            <div class="texto-nav">
+                                <a href="" id="nombreUsuario">Daniel Saldaña</a>
+                            </div>
+                        </li>
+                    </ul>
+                        <!--Avatar -->
+                </nav>
+        <!-- END NAVBAR-->
+            </div>
+
+        <!-- Todo el contenido de la pagina va aqui-->
+            <div id="text-area" class="padding1em">
+                <div class="container-fluid">
+                    <!-- Fila de arriba -->
+                    <h3 class="marginTop3em">Bienvenido Daniel!</h3>
+
+                    <p class="marginTop2em letras-rojas">Agenda una consulta médica</p>
+
+                    <div class="columnas-home-agenda">
+                        <div>
+                            <!-- Especialidad -->
+                            <div class="marginTop1em">
+                                <p>1. Seleccione la especialidad</p>
+                                <!-- Contenedor de imagenes de cada especialidad-->
+                                <div class="especialidades">
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>General</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>Psicología</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>Nutrición</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>Ginecología</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>Pediatría</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png" class="img-fluid">
+                                        <p>Dermatología</p>
+                                    </div>
+                                </div>
+                                <!--Fin Contenedor de imagenes de cada especialidad-->
+                            </div>
+                            <!-- Fin Especialidad -->
+                        </div>
+
+                        <!-- Que va a tratar-->
+                        <div class="marginTop1em">
+                            <p>2. ¿Qué desea tratar?</p>
+                            <div>
+                                <input type="checkbox" id="dolorCabeza" name="dolorCabeza">
+                                <label for="dolorCabeza">Dolor de cabeza</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mareos" name="mareos">
+                                <label for="mareos">Mareos</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="nauseas" name="nauseas">
+                                <label for="nauseas">Náuseas</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="vistaBorrosa" name="vistaBorrosa">
+                                <label for="vistaBorrosa">Vista borrosa</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="cansancio" name="cansancio">
+                                <label for="cansancio">Cansancio</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="otro" name="otro">
+                                <label for="otro">Otro</label><br>
+                            </div>
+                        </div>
+                        <!-- Fin de Que va a tratar-->
+
+                        <!-- Seleccion de médico -->
+                        <div class="marginTop1em seleccion-medico-home">
+                            <p>3. Seleccione un médico</p>
+                            <div>
+                                <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                                <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                                <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                            </div>
+                        </div>
+                        <!-- Fin de Seleccion de médico -->
+
+                        <!-- Botón de ver mas-->
+                        <div class="marginTop1em">
+                            <button class="boton btn-medio-ver-mas">VER MÁS</button>
+                        </div>
+                        <!-- Fin de Botón ver mas--> 
+                    </div>
+                    <!-- Fin de Fila de arriba -->
+
+                    <!-- FIla de abajo-->
+                    <div>
+                        <div class="container-fluid columnas-home-citas">
+                            <!-- Columna izquierda-->
+                            <div>
+                                <p class="marginTop2em letras-rojas">Tus próximas citas</p>
+                                <!-- Contenedor para citas proximas-->
+                                <div>
+                                    <p class="bold">Domingo 27 de Septiembre</p>
+                                    <p class="bold">10:00 a.m. - 10:30 a.m.</p>
+                                    <p>Dr. Juan Pérez - Médico general</p>
+                                </div>
+                                <div>
+                                    <p class="bold">Lunes 28 de Septiembre</p>
+                                    <p class="bold">06:00 a.m. - 06:30 p.m.</p>
+                                    <p>Dr. Adrián Álvarez - Psicólogo</p>
+                                </div>
+                                <!-- Fin Contenedor para citas proximas-->
+                            </div>
+                            <!-- Fin Columna izquierda-->
+                            <!-- Columna derecha-->
+                            <div>
+                                <p class="marginTop2em letras-rojas">Últimas publicaciones</p>
+                                <!-- Contenedor de publicaciones-->
+                                <div class="publicaciones-flex marginTop1em">
+                                    <img src="../img/publicacion.png" class="img-fluid">
+                                    <div class="padding1em">
+                                        <p class="bold">Medidas de prevención contra el COVID-19</p>
+                                        <p>Aprende a cuidarte contra el coronavirus</p>
+                                    </div>
+                                </div>
+                                <div class="publicaciones-flex marginTop1em">
+                                    <img src="../img/publicacion.png" class="img-fluid">
+                                    <div class="padding1em">
+                                        <p class="bold">Causas de la depresión</p>
+                                        <p>Aprende a identificar los síntomas más comunes de depresión</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fin Columna derecha-->
+
+                        </div>
+                    </div>
+                    <!-- Fin de FIla de abajo-->
+                </div>
+            </div>
+        </div>
+        <!-- Fin contenido-->
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <!-- JavaScript -->
+        <script src="../js/scripts.js"></script>
+    </body>
+
+</html>
