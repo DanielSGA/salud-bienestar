@@ -67,6 +67,10 @@ p{
 	font-weight: 400;
 }
 
+.bold{
+	font-weight: bold;
+}
+
 .unEm{
 	padding-right: 1em;
 }
@@ -286,6 +290,17 @@ form input:placeholder{
 	/*grid-column-gap: 1em;*/
 }
 
+.columnas-home-citas{
+	display: flex;
+	justify-content: space-around;
+}
+
+.publicaciones-flex{
+	display: flex;
+	justify-content: end;
+	flex-direction: row;
+}
+
 @media (min-width: 1097px){
 	.especialidades{
 		display: grid;
@@ -338,9 +353,38 @@ form input:placeholder{
 	}
 }
 
+@media (max-width: 790px){
+	.columnas-home-citas{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.publicaciones-flex{
+		display: block;
+	}
+
+	.padding1em{
+		padding: 0;
+	}
+}
 
 
+@media (max-width: 790px){
+	.columnas-home-citas{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
 
+	.publicaciones-flex{
+		display: block;
+	}
+
+	.padding1em{
+		padding: 0;
+	}
+}
 
 
 
