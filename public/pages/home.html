@@ -81,7 +81,7 @@
                                     <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
                                     <div class="overlay-content">
                                         <form id="form" action="">
-                                            <input type="text" name="" placeholder="¿Qué par buscas?">
+                                            <input type="text" name="" placeholder="¿Qué médico busca?">
                                             <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
                                         </form>
                                     </div>
@@ -112,19 +112,101 @@
             </div>
 
         <!-- Todo el contenido de la pagina va aqui-->
-            <div id="text-area">
+            <div id="text-area" class="padding1em">
                 <div class="container-fluid">
+                    <!-- Fila de arriba -->
+                    <h3 class="marginTop3em">Bienvenido Daniel!</h3>
 
-                    <div class="container">
-                        <!-- Columna de la izquierda -->
-                        <h3>Bienvenido Daniel!</h3>
+                    <p class="marginTop2em letras-rojas">Agenda una consulta médica</p>
 
-                        <h5>Agenda una consulta médica</h5>
-                        <!-- Fin de Columna izquierda -->
+                    <div class="columnas-home-agenda">
+                        <div>
+                            <!-- Especialidad -->
+                            <div class="marginTop1em">
+                                <p>1. Seleccione la especialidad</p>
+                                <!-- Contenedor de imagenes de cada especialidad-->
+                                <div class="especialidades">
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>General</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>Psicología</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>Nutrición</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>Ginecología</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>Pediatría</p>
+                                    </div>
+                                    <div>
+                                        <img src="../img/imgen.png">
+                                        <p>Dermatología</p>
+                                    </div>
+                                </div>
+                                <!--Fin Contenedor de imagenes de cada especialidad-->
+                            </div>
+                            <!-- Fin Especialidad -->
+                        </div>
+
+                        <!-- Que va a tratar-->
+                        <div class="marginTop1em">
+                            <p>2. ¿Qué desea tratar?</p>
+                            <div>
+                                <input type="checkbox" id="dolorCabeza" name="dolorCabeza">
+                                <label for="dolorCabeza">Dolor de cabeza</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="mareos" name="mareos">
+                                <label for="mareos">Mareos</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="nauseas" name="nauseas">
+                                <label for="nauseas">Náuseas</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="vistaBorrosa" name="vistaBorrosa">
+                                <label for="vistaBorrosa">Vista borrosa</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="cansancio" name="cansancio">
+                                <label for="cansancio">Cansancio</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="otro" name="otro">
+                                <label for="otro">Otro</label><br>
+                            </div>
+                        </div>
+                        <!-- Fin de Que va a tratar-->
+
+                        <!-- Seleccion de médico -->
+                        <div class="marginTop1em seleccion-medico-home">
+                            <p>3. Seleccione un médico</p>
+                            <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                            <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                            <div style="width: 5em; height: 3em; background-color: red; margin-top: 1rem;"></div>
+                        </div>
+                        <!-- Fin de Seleccion de médico -->
+
+                        <!-- Botón de ver mas-->
+                        <div class="marginTop1em">
+                            <button class="boton btn-medio-ver-mas">VER MÁS</button>
+                        </div>
+                        <!-- Fin de Botón ver mas--> 
                     </div>
+                    <!-- Fin de Fila de arriba -->
+                    <!-- FIla de abajo-->
                     <div>
                         
                     </div>
+                    <!-- Fin de FIla de abajo-->
                 </div>
             </div>
         </div>
