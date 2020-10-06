@@ -9,15 +9,26 @@ html{
 }
 
 body{
-	line-height: 2;
+	line-height: 1.5;
 	font-size: 1.60rem;
 	font-family: 'Poppins', sans-serif;
+}
+
+.line-heigh{
+	line-height: 1em;
 }
 
 nav{
 	height: 100vh;
 	align-items: center;
 	text-align: center;
+}
+
+@media (max-width: 700px){
+	#nav{
+		padding-right: 0!important;
+		padding-left: 0!important;
+	}
 }
 
 .text-center{
@@ -89,6 +100,10 @@ p{
 
 .marginTop1em{
 	margin-top: 1em;
+}
+
+.margin-bottom{
+	margin-bottom: 1.5em;
 }
 
 #logo-nav{
@@ -246,7 +261,8 @@ a:hover{
 
 #form{
 	position: initial;
-	margin: 50vh auto;
+	margin: 50vh 0;
+	padding-left: 4em;
 }
 
 #form input{
@@ -260,6 +276,22 @@ a:hover{
 form input:placeholder{
 	color: white;
 }
+
+@media (max-width: 739px) {
+	.fa-2x{
+		width: 50%;
+		height: 50%;
+	}
+	#form input{
+		font-size: 2rem;
+	}
+	.overlay .overlay-fa{
+		font-size: 2rem;
+		padding: 0;
+	}
+}
+
+
 /* Fin buscador */
 
 /* Botones */
@@ -275,6 +307,17 @@ form input:placeholder{
 	height: 3em;
 	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
 	border-radius: 30px;
+}
+
+@media (min-width: 768px) {
+	.boton{
+		display: inline-block;
+		flex: 0 0 auto;
+	}
+}
+
+.boton:hover{
+	cursor: pointer;
 }
 
 .btn-medio-ver-mas{
@@ -293,6 +336,7 @@ form input:placeholder{
 .columnas-home-citas{
 	display: flex;
 	justify-content: space-around;
+	margin-bottom: 10%;
 }
 
 .publicaciones-flex{

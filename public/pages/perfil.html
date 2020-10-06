@@ -11,7 +11,7 @@
         <!-- Para que sea unica la pagina en Google-->
         <link rel="canonical" href="">
 
-        <title>ProSalud Home</title>
+        <title>Perfil</title>
         <!-- Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <!-- Minified CSS for awsome fonts -->
@@ -28,7 +28,7 @@
         <div class="columnas-pagina-nav-textArea">
             <div>
             <!-- NAVBAR -->
-                <nav class=" container-fluid color-nav text-center">
+                <nav class=" container-fluid color-nav text-center" id="nav">
                     <!-- Logo-->
                     <div>
                       <a class="navbar-brand" href="#">
@@ -42,7 +42,7 @@
                                 <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a href="" class="texto-nav"><p>Inicio</p></a>
+                                <a href="" class="active texto-nav"><p>Inicio</p></a>
                             </div>
                         </li>
                         <li class="columnas-display-grid">
@@ -81,7 +81,7 @@
                                     <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
                                     <div class="overlay-content">
                                         <form id="form" action="">
-                                            <input type="text" name="" placeholder="¿Qué par buscas?">
+                                            <input type="text" name="" placeholder="¿Qué médico busca?">
                                             <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
                                         </form>
                                     </div>
@@ -102,7 +102,7 @@
                                 </a>
                             </div>
                             <div class="texto-nav">
-                                <a href="" id="nombreUsuario" class="active"><p>Daniel Saldaña</p></a>
+                                <a href="" id="nombreUsuario">Daniel Saldaña</a>
                             </div>
                         </li>
                     </ul>
@@ -112,15 +112,11 @@
             </div>
 
         <!-- Todo el contenido de la pagina va aqui-->
-            <div id="text-area">
+            <div id="text-area" class="padding1em">
                 <div class="container-fluid">
+                    
 
-                    <div>
-                        
-                    </div>
-                    <div>
-                        
-                    </div>
+
                 </div>
             </div>
         </div>
