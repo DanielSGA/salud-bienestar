@@ -62,6 +62,13 @@ h3{
 	font-weight: 700;
 }
 
+h4{
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+	font-weight: 700;
+	color: #0374B9;
+}
+
 .letras-rojas{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 600;
@@ -76,6 +83,8 @@ h6{
 p{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: 1rem;
 }
 
 .bold{
@@ -106,6 +115,10 @@ p{
 	margin-bottom: 1.5em;
 }
 
+.margin-left{
+	margin-left: 2em;
+}
+
 #logo-nav{
 	margin-top: 3em;
 	width: 8em;
@@ -122,6 +135,25 @@ p{
 .columnas-avatar-nav{
 	display: grid;
 	grid-template-columns: 29% 55%;
+}
+
+.columnas-avatar-title{
+	display: grid;
+	grid-template-columns: 10% 55%;
+}
+
+@media (min-width:500px) and (max-width:900px){
+	.columnas-avatar-title{
+		display: grid;
+		grid-template-columns: 30% 55%;
+	}
+}
+
+@media (max-width: 760px){
+	.columnas-avatar-title{
+		display: grid;
+		grid-template-columns: 40% 55%;
+	}
 }
 
 .active{
@@ -144,8 +176,9 @@ p{
 
 #text-area{
 	border-radius: 2.5em 0 0 2.5em;
-	width: 90%;
-	background-color: #fff;
+	width: 91.5%;
+/*	height: 100%;
+*/	background-color: #fff;
 	color: #000;
 }
 
@@ -153,6 +186,7 @@ p{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row;
+	width: 100%;
 }
 
 .navbar-brand{
@@ -194,9 +228,9 @@ a:hover{
 		font-weight: 400;
 	}
 
-	#text-area{
+	/*#text-area{
 		width: 90%;
-	}
+	}*/
 
 }
 
@@ -430,11 +464,31 @@ form input:placeholder{
 	}
 }
 
+/*Perfil */
+#avatar-nav{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
 
+.text_black{
+	line-height: 1;
+	font-size: 1.60rem;
+	color: black;
+}
 
+.columnas-perfil-info{
+	display: grid;
+	grid-template-columns: 42% 53%;
+}
 
-
-
+@media (max-width: 790px){
+	.columnas-perfil-info{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
 
 
 
