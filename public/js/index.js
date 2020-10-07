@@ -15,12 +15,12 @@ sign_in_btn.addEventListener('click', () => {
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////// NODE  FETCH /////////////////////////////////
 
-function userSignupFetch( usuario, correo, password){
-    let url = '/api/users/register';
+function userSignupFetch( email, password){
+    console.log("in signup fetch");
+    let url = '/api/users/signup';
 
     let data = {
-        usuario,
-        correo,
+        email,
         password
     }
 
@@ -42,18 +42,20 @@ function userSignupFetch( usuario, correo, password){
             throw new Error( response.statusText );
         })
         .then( responseJSON => {
-            userLoginFetch( data.correo, data.password )
+            console.log("in login fetch2");
+            userLoginFetch( data.email, data.password )
         })
         .catch( err => {
             //results.innerHTML = `<div> ${err.message} </div>`;
+            console.log(err);
         });
 }
 
-function userLoginFetch( correo, password ){
+function userLoginFetch( email, password ){
     let url = '/api/users/login';
 
     let data = {
-        correo,
+        email,
         password
     }
 
@@ -93,7 +95,7 @@ function watchLoginForm(){
     loginForm.addEventListener( 'submit' , ( event ) => {
         event.preventDefault();
         let correo = document.getElementById( 'correo_login' ).value;
-        let password = document.getElementById( 'password_Login' ).value;
+        let password = document.getElementById( 'password_login' ).value;
 
         userLoginFetch( correo, password );
     })
@@ -104,11 +106,11 @@ function watchSignupForm(){
 
     loginForm.addEventListener( 'submit' , ( event ) => {
         event.preventDefault();
-        let usuario = document.getElementById( 'usuario_signup' ).value;
+        //let usuario = document.getElementById( 'usuario_signup' ).value;
         let correo = document.getElementById( 'correo_signup' ).value;
         let password = document.getElementById( 'password_signup' ).value;
 
-        userSignupFetch( usuario, correo, password );
+        userSignupFetch( correo, password );
     })
 }
 
