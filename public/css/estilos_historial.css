@@ -1,0 +1,301 @@
+/* GLOBALES */
+html{
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+,:before, *:after{
+	box-sizing: inherit;
+}
+
+body{
+	line-height: 2;
+	font-size: 1.60rem;
+	font-family: 'Poppins', sans-serif;
+}
+
+nav{
+	height: 100vh;
+	align-items: center;
+	text-align: center;
+}
+
+.text-center{
+	text-align: center;
+	align-items: center;
+}
+
+li{
+	list-style: none;
+	margin-top: 1em;
+	color: #fff;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.text_black{
+	line-height: 1;
+	font-size: 1.60rem;
+	color: black;
+}
+
+.text_black_bold{
+	line-height: 4;
+	font-size: 1.60rem;
+	font-weight: bolder;
+	color: black;
+}
+
+.color-nav{
+	background-color: #0374b9;
+	z-index: -1;
+}
+
+ul{
+	padding: 0;
+	margin-top: 3.5em;
+}
+
+h3{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+}
+
+h4{
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+	font-weight: 700;
+	color: #0374B9;
+}
+
+h5{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	color: #e72f6a;
+}
+
+.unEm{
+	padding-right: 1em;
+}
+
+#logo-nav{
+	margin-top: 3em;
+	width: 8em;
+	height: 8em;
+	border-radius: 5;
+}
+
+#avatar-nav{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.historial{
+	padding: 4rem;
+}
+
+.table-historial{
+	background-color: white;
+	border: 1px solid lightgray;
+	box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.columnas-avatar-nav{
+	display: grid;
+	grid-template-columns: 29% 55%;
+}
+
+.columnas-avatar-title{
+	display: grid;
+	grid-template-columns: 10% 55%;
+}
+
+.active{
+	font-weight: 700;
+}
+
+/* Rayita abajo de la pestaña activa*/
+.active p::after{
+	content: "";
+	display: block;
+	width: 6rem;
+	height: .5rem;
+	background-color: #e5e5e5;
+	margin-top: .3rem;
+}
+
+#nombreUsuario{
+	font-weight: 500;
+}
+
+#text-area{
+	border-radius: 2.5em 0 0 2.5em;
+	width: 91.5%;
+	height: 100%;
+	background-color: #FBFBFB;
+	color: #000;
+}
+
+.columnas-pagina-nav-textArea{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+}
+
+.navbar-brand{
+	margin-right: 0;
+}
+
+a:hover{
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* HOME */
+.columnas-display-grid{
+	display: grid;
+	grid-template-columns: 34% 0%;
+	/* Tambien se puede poner 1fr y 1fr 
+		o repeat(2, 50%) o repeat(2, 1fr)*/
+	/*grid-column-gap: 2rem; */
+}
+
+
+@media (min-width:500px) and (max-width:900px){
+	.columnas-avatar-title{
+		display: grid;
+		grid-template-columns: 30% 55%;
+	}
+}
+
+@media (max-width: 760px){
+	.texto-nav{
+		display: none;
+	}
+
+	#logo-nav{
+		height: 3em;
+		width: 3em;
+	}
+
+	.columnas-display-grid, .columnas-avatar-nav{
+		display: grid;
+		grid-template-columns: 100% 0%;
+	}
+
+	.columnas-avatar-title{
+		display: grid;
+		grid-template-columns: 40% 55%;
+	}
+
+	nav{
+		width: 10%;
+		font-weight: 400;
+	}
+
+	#text-area{
+		width: 90%;
+	}
+
+}
+
+/* Al oprimir buscar */
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #0374b9;
+}
+
+.overlay .cerrarBusqueda{
+  float: left;
+  width: 10%;
+  padding: 1rem;
+  background: #0374b9;
+  font-size: 4rem;
+  border: none;
+}
+
+.overlay .overlay-fa{
+	float: left;
+	padding: 1rem;
+	background: #0374b9;
+	font-size: 4rem;
+	border: none;
+	background-color: #0374b9;
+}
+
+.cerrarBusqueda {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+#form{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+input{
+	height: 40%;
+	width: 80%;
+}
+
+.overlay-content {
+  position: relative;
+  width: 80%;
+  text-align: center;
+  margin-top: 3rem;
+  margin: auto;
+}
+
+#form{
+	position: initial;
+	margin: 50vh auto;
+}
+
+#form input{
+	background: transparent;
+	color: white;
+	border: none;
+	outline: none;
+	font-size: 4rem;
+}
+
+form input:placeholder{
+	color: white;
+}
+/* Fin buscador */
+
+
+/* Botones */
+.boton{
+	color: white;
+	font-weight: 700;
+	text-decoration: none;
+	background-color: purple;
+	font-size: 1.8rem;
+	padding: 1rem 3rem;
+	display: inline-block;
+	text-align: center;
+	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
+	flex: 0 0 100%;
+	border-radius: 20px;
+}
+
