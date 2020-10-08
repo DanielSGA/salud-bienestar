@@ -119,6 +119,10 @@ p{
 	margin-left: 2em;
 }
 
+.margin-sides{
+	margin: .4em 3em;
+}
+
 #logo-nav{
 	margin-top: 3em;
 	width: 8em;
@@ -354,6 +358,10 @@ form input:placeholder{
 	cursor: pointer;
 }
 
+.fa-search:hover{
+	color: #000;
+}
+
 .btn-medio-ver-mas{
 	margin-top: 100%;
 }
@@ -426,7 +434,7 @@ form input:placeholder{
 	}
 
 	.btn-medio-ver-mas{
-		margin: 5% 45%;
+		margin: 5% 0%;
 		margin-bottom: 10%;
 	}
 }
@@ -490,7 +498,32 @@ form input:placeholder{
 	}
 }
 
+.botones-perfil{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
 
+.boton-perfil-diseño{
+	color: white;
+	font-weight: 500;
+	border: none;
+	text-decoration: none;
+	background-color: #E72F6A;
+	padding: .5rem;
+	text-align: center;
+	width: 11em;
+	height: 2em;
+	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
+	border-radius: 10px;
+}
+
+@media (max-width: 600px){
+	.botones-perfil{
+		display: flex;
+		flex-direction: column;
+	}
+}
 
 
 

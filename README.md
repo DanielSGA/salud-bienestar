@@ -26,6 +26,10 @@ El proyecto es una aplicación web responsiva con el propósito de brindar a com
 | JavaScript    | 1.8.5        |
 | NodeJS        | 12.18.4      |
 | MongoDB       | 4.4.1        |
+| Express       | 4.17.1       |
+| jQuery        | 3.5.1        |
+| body-parser   | 1.19.0       |
+| bcrypt        | 5.0.0        |
 | Bootstrap     | 4.4          |
 
 ### Management tools
