@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="../css/all.min.css">
         <!-- CSS -->
         <link rel="stylesheet" href="../css/estilos.css">
+        <link rel="stylesheet" href="../css/nuevos.css">
         <!-- Simbolo de pestaña ICO -->
         <link rel="icon" type="image/png" href="../img/logo.ico">
         <!-- Prevent Google from translate-->
@@ -141,31 +142,48 @@
                             <!-- Nombre -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Nombre completo</p>
-                                <p>Daniel Alejandro Saldaña García</p>
+                                <div class ="editContainer">
+                                    <p id= "info_nombre">Daniel Alejandro Saldaña García</p>
+                                    <input type="text" id="input_nombre" placeholder="Nombre Completo" name="nombre" class = "userInput hidden" value= "Daniel Alejandro Saldaña García" autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Edad -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Edad</p>
-                                <p>22</p>
+                                <div class ="editContainer">
+                                <p id= "info_edad" >22</p>
+                                <input type="text" id="input_edad" placeholder="Edad" name="edad" class = "userInput hidden" value = "22"  autocomplete="off">
+
+                             </div>
+
                             </div>
 
                             <!-- Sexo -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Sexo</p>
-                                <p>Masculino</p>
+                                <div class ="editContainer">
+                                    <p id= "info_sexo">Masculino</p>
+                                    <input type="text" id="input_sexo" placeholder="Sexo" name="sexo" class = "userInput hidden" value = "Masculino"  autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Telefono -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Teléfono celular</p>
-                                <p>8112345678</p>
+                                <div class ="editContainer">
+                                    <p id ="info_telefono">8112345678</p>
+                                    <input type="text" id="input_telefono" placeholder="Teléfono" name="telefono" class = "userInput hidden" value = "8112345678"  autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Correo -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Correo electrónico</p>
-                                <p>daniel_sag@outlook.com</p>
+                                <div class ="editContainer">
+                                    <p id = "info_correo">daniel_sag@outlook.com</p>
+                                    <input type="text" id="input_correo" placeholder="Correo" name="correo" class = "userInput hidden" value = "daniel_sag@outlook.com"  autocomplete="off">
+                                </div>
                             </div>
 
                         </div>
@@ -178,35 +196,55 @@
                             <!-- Antecedentes -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Antecedentes médicos</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class ="editContainer">
+                                    <p id = "info_antecedentes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <input type="text" id="input_antecedentes" placeholder="Antecedentes Médicos" name="antecedentes" class = "userInput hidden" value = "Lorem ipsum dolor sit amet,
+                                     consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."  autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Medicamentos -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Medicamentos actuales</p>
-                                <p>Paracetamol, Diclofenaco, Loratadina</p>
+                                <div class ="editContainer">
+                                    <p id = "info_medicamentos">Paracetamol, Diclofenaco, Loratadina</p>
+                                    <input type="text" id="input_medicamentos" placeholder="Medicamentos" name="medicamentos" class = "userInput hidden" value = "Paracetamol, Diclofenaco, Loratadina"  autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Alergias -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Alergias</p>
-                                <p>Ninguna</p>
+                                <div class ="editContainer">
+                                    <p id = "info_alergias">Ninguna</p>
+                                    <input type="text" id="input_alergias" placeholder="Alergias" name="alergias" class = "userInput hidden" value = "Ninguna"  autocomplete="off">
+                                </div>
                             </div>
 
                             <!-- Discapacidades -->
                             <div class="line-heigh margin-bottom">
                                 <p class="bold">Discapacidades</p>
-                                <p>Visual</p>
+                                <div class ="editContainer">
+                                    <p id = "info_discapacidades">Visual</p>
+                                    <input type="text" id="input_discapacidades" placeholder="Discapacidades" name="discapacidades" class = "userInput hidden" value = "Visual"  autocomplete="off">
+                                </div>
                             </div>
                         </div>
                         <!-- Fin Columna Derecha -->
 
                         <div class="botones-perfil">
                             <div>
-                                <p class="line-height boton-perfil-diseño margin-sides">EDITAR PERFIL</p>
+                                <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
+                                <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</button> 
                             </div>
                             <div>
-                                <p class="line-height boton-perfil-diseño margin-sides">HISTORIAL MÉDICO</p>
+                                <!--<p class="line-height boton-perfil-diseño margin-sides">HISTORIAL MÉDICO</p> -->
+                                <a href ="../pages/historial_usuario.html">
+                                <button type="button" class = "line-height boton-perfil-diseño margin-sides historialBtn">
+                                    HISTORIAL MÉDICO</button></a>
                             </div>
                         </div>
 
@@ -223,6 +261,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <!-- JavaScript -->
         <script src="../js/scripts.js"></script>
+        <script src="../js/perfil_usuario.js"></script>
     </body>
 
 </html>

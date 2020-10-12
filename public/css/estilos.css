@@ -498,11 +498,6 @@ form input:placeholder{
 	}
 }
 
-.botones-perfil{
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-}
 
 .boton-perfil-diseño{
 	color: white;
@@ -516,13 +511,6 @@ form input:placeholder{
 	height: 2em;
 	display: block; /* PAra que tome todo el espacio disponible0 0 100%;*/
 	border-radius: 10px;
-}
-
-@media (max-width: 600px){
-	.botones-perfil{
-		display: flex;
-		flex-direction: column;
-	}
 }
 
 

@@ -1,0 +1,64 @@
+
+
+.editContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between
+}
+
+.userInput{
+	width: 300px;
+	height: 33px;
+	left: 403px;
+
+	background: #FFFFFF;
+	border: 1px solid #E3E3E3;
+	box-sizing: border-box;
+}
+
+.text_black{
+	line-height: 1;
+	font-size: 1.60rem;
+	color: black;
+}
+
+.editBtn{
+	width: 180px;
+	height: 40px;
+	margin: 10px;
+
+	background: rgba(3, 116, 185, 0.75);
+	border-radius: 4px;
+}
+
+.historialBtn{
+	width: 200px;
+	height: 40px;
+	margin: 10px;
+
+	background: rgba(231, 47, 106, 0.75);
+	border-radius: 4px;
+}
+
+.editBtn.hover, .historialBtn.hover{
+	cursor: pointer;
+}
+
+.botones-perfil{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+@media (max-width: 600px){
+	.botones-perfil{
+		display: flex;
+		flex-direction: column;
+	}
+}
