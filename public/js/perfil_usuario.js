@@ -104,28 +104,92 @@ function setProfile( responseJSON ){
       .then( userInfo => {
 
           nombeUsuario.innerHTML = `${userInfo.nombre}`;
-          edadUsuario.innerHTML = `${userInfo.edad}` + ` años`;
 
-          infoNombre.innerHTML = `${userInfo.nombre}`;
-          infoEdad.innerHTML = `${userInfo.edad}`;
-          infoSexo.innerHTML = `${userInfo.sexo}`;
-          infoTelefono.innerHTML = `${userInfo.telefono}`;
-          infoCorreo.innerHTML = `${userInfo.email}`;
-          infoAntecedentes.innerHTML = `${userInfo.antecedentes}`;
-          infoMedicamentos.innerHTML = `${userInfo.medicamentos}`;
-          infoAlergias.innerHTML = `${userInfo.alergias}`;
-          infoDiscapacidaddes.innerHTML = `${userInfo.discapacidades}`;
+          if (userInfo.nombre != null){
+            nombeUsuario.innerHTML = `${userInfo.nombre}`;edadUsuario.innerHTML = `${userInfo.edad}` + ` años`;
+            infoNombre.innerHTML = `${userInfo.nombre}`;
+            inputNombre.value = `${userInfo.nombre}`;
+          }
+          else{
+            nombeUsuario.innerHTML = ``;
+            infoNombre.innerHTML = ``;
+            inputNombre.value = ``;
+          }
 
-          inputNombre.value = `${userInfo.nombre}`;
-          inputEdad.value = `${userInfo.edad}`;
-          inputSexo.value = `${userInfo.sexo}`;
-          inputTelefono.value = `${userInfo.telefono}`;
-          inputCorreo.value = `${userInfo.email}`;
-          inputAntecedentes.value = `${userInfo.antecedentes}`;
-          inputMedicamentos.value = `${userInfo.medicamentos}`;
-          inputAlergias.value = `${userInfo.alergias}`;
-          inputDiscapacidaddes.value = `${userInfo.discapacidades}`;
+          if (userInfo.edad != null){
+            edadUsuario.innerHTML = `${userInfo.edad}` + ` años`;
+            infoEdad.innerHTML = `${userInfo.edad}`;
+            inputEdad.value = `${userInfo.edad}`;
+          }
+          else{
+            edadUsuario.innerHTML = ``;
+            infoEdad.innerHTML = ``;
+            inputEdad.value = ``;
+          }
 
+          if (userInfo.sexo != null){
+            infoSexo.innerHTML = `${userInfo.sexo}`;
+            inputSexo.value = `${userInfo.sexo}`;
+          }
+          else{
+            infoSexo.innerHTML = ``;
+            inputSexo.value = ``;
+          }
+          
+          if (userInfo.telefono != null){
+            infoTelefono.innerHTML = `${userInfo.telefono}`;
+            inputTelefono.value = `${userInfo.telefono}`;
+          }
+          else{
+            infoTelefono.innerHTML = ``;
+            inputTelefono.value = ``;
+          }
+          
+          if (userInfo.email != null){
+            infoCorreo.innerHTML = `${userInfo.email}`;
+            inputCorreo.value = `${userInfo.email}`;
+          }
+          else{
+            infoCorreo.innerHTML = ``;
+            inputCorreo.value = ``;
+          }
+          
+          if (userInfo.antecedentes != null){
+            infoAntecedentes.innerHTML = `${userInfo.antecedentes}`;
+            inputAntecedentes.value = `${userInfo.antecedentes}`;
+          }
+          else{
+            infoAntecedentes.innerHTML = ``;
+            inputAntecedentes.value = ``;
+          }
+
+          if (userInfo.medicamentos != null){
+            infoMedicamentos.innerHTML = `${userInfo.medicamentos}`;
+            inputMedicamentos.value = `${userInfo.medicamentos}`;
+          }
+          else{
+            infoMedicamentos.innerHTML = ``;
+            inputMedicamentos.value = ``;
+          }
+
+          if (userInfo.alergias != null){
+            infoAlergias.innerHTML = `${userInfo.alergias}`;
+            inputAlergias.value = `${userInfo.alergias}`;
+          }
+          else{
+            infoAlergias.innerHTML = ``;
+            inputAlergias.value = ``;
+          }
+          
+          if (userInfo.discapacidades != null){
+            infoDiscapacidaddes.innerHTML = `${userInfo.discapacidades}`;
+            inputDiscapacidaddes.value = `${userInfo.discapacidades}`;
+          }
+          else{
+            infoDiscapacidaddes.innerHTML = ``;
+            inputDiscapacidaddes.value = ``;
+          }
+          
       })
       .catch( err => {
           console.log( err.message );
