@@ -17,8 +17,68 @@ const { DATABASE_URL, PORT, SECRET_TOKEN } = require( './config' );
 
 app.use(bodyParser.json()); //converts the data to JSON format
 
+//Validate user endpoint, maybe make it a middleware.
+app.get( '/api/validate-user', ( req, res ) => {
+    const { sessiontoken } = req.headers;
+
+    jsonwebtoken.verify( sessiontoken, SECRET_TOKEN, ( err, decoded ) => {
+        if( err ){
+            res.statusMessage = "Session expired!";
+            return res.status( 400 ).end();
+        }
+        //console.log(decoded)
+        return res.status( 200 ).json( decoded );
+    });
+});
+
+//Get all users
+app.get('/api/users', (req, res) => {
+    console.log("Getting the list of all users" );
+
+    Users
+        .getAllUsers()
+        .then( result => {
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            return res.status( 500 ).end();
+        });
+
+});
+
+//Get user by _id
+app.get( '/api/get-userby_id', jsonParser, ( req, res ) => {
+
+    let id = req.query._id;
+
+    if( !id){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Users
+        .getUserByID( id )
+        .then( result => {
+
+            if (result.length == 0){
+                res.statusMessage = `No Users with the id = ${id} were found on the list.`;
+                return res.status ( 404 ).end();
+            }
+
+            //Return status text and user parsed as a json object.
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            console.log(err)
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+});
+
 app.post( '/api/users/signup', jsonParser, ( req, res ) => {
-    let {email, password} = req.body;
+    let {nombre, email, password} = req.body;
 
     if( !email || !password){
         res.statusMessage = "Parameter missing in the body of the request.";
@@ -28,6 +88,7 @@ app.post( '/api/users/signup', jsonParser, ( req, res ) => {
     bcrypt.hash( password, 10 )
         .then( hashedPassword => {
             let newUser = {
+                nombre : nombre,
                 password : hashedPassword, 
                 email
             };
@@ -99,7 +160,60 @@ app.post( '/api/users/login', jsonParser, ( req, res ) => {
 
 //const port = process.env.PORT || 4000;
 
+app.patch( '/api/users/updateInfo', jsonParser, ( req, res ) =>{
+    const { sessiontoken } = req.headers;
 
+    jsonwebtoken.verify( sessiontoken, SECRET_TOKEN, ( err, decoded ) => {
+        if( err ){
+            res.statusMessage = "Session expired!";
+            return res.status( 400 ).end();
+        }
+
+        //If modify is 1, we add the artwork, if its -1, we delete the artwork from the likes
+        let { user_id, nombre, edad, sexo, telefono, email, antecedentes, medicamentos, alergias, discapacidades} = req.body;
+
+        if( !user_id ){
+            res.statusMessage = "Parameter missing in the body of the request.";
+            return res.status( 406 ).end();
+        }
+
+        Users
+        .getUserByID( user_id )
+        .then( result => {
+
+            if (result.length == 0){
+                res.statusMessage = `No Users with the id = ${id} were found on the list.`;
+                return res.status ( 404 ).end();
+            }
+
+            Users
+                .updateUserInfo( user_id, nombre, edad, sexo, telefono, email, antecedentes, medicamentos, alergias, discapacidades )
+                .then( result => {
+
+                    if ( result.n == 0 ){
+                        console.log(result)
+                        res.statusMessage = "The user was not modified";
+                        return res.status( 404 ).end()
+                    }
+                    else{
+                        
+                        return res.status( 202 ).json( result );
+                    }
+                })
+                .catch( err => {
+                    res.statusMessage = "Something is wrong with the database, try again later.";
+                    return res.status( 500 ).end();
+                });
+        })
+        .catch( err => {
+
+            console.log(err)
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+    });
+})
 
 app.listen(PORT,()=>{
     console.log(`server running on ${PORT}`);

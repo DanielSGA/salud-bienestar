@@ -92,10 +92,10 @@ const Users = {
                     throw new Error( err.message );
                 }); 
     },
-    updateUserInfo : function( user_id, nombre, edad, sexo, telefono, correo, antecedentes, medicamentos, alergias, discapacidades ){
+    updateUserInfo : function( user_id, nombre, edad, sexo, telefono, email, antecedentes, medicamentos, alergias, discapacidades ){
         return userModel
                 .updateOne({ _id: user_id },{ $set : { nombre : nombre, edad : edad, sexo : sexo,
-                     telefono : telefono, correo : correo, antecedentes : antecedentes,
+                     telefono : telefono, email : email, antecedentes : antecedentes,
                       medicamentos : medicamentos, alergias: alergias, discapacidades: discapacidades  }})
                 .then( userUpdated => {
                     return userUpdated;

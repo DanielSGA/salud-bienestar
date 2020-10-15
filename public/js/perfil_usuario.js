@@ -1,3 +1,5 @@
+var currentUserId = ";"
+
 // Buscador
 function openSearch() {
   document.getElementById("overlay").style.display = "block";
@@ -62,6 +64,9 @@ function validateUser(){
 //Get all info
 function setProfile( responseJSON ){
 
+  let nombeUsuario = document.querySelector("#nombreUsuarioTitle");
+  let edadUsuario = document.querySelector("#edadUsuarioTitle");
+
   let infoNombre = document.querySelector("#info_nombre");
   let infoEdad = document.querySelector("#info_edad");
   let infoSexo = document.querySelector("#info_sexo");
@@ -85,7 +90,7 @@ function setProfile( responseJSON ){
   
 
   //Get info by user id
-  let url = `/api/get-infobyid?_id=${responseJSON._id}`;
+  let url = `/api/get-userby_id?_id=${currentUserId}`;
   let settings = {
       method : 'GET'
   }
@@ -98,11 +103,14 @@ function setProfile( responseJSON ){
       })
       .then( userInfo => {
 
+          nombeUsuario.innerHTML = `${userInfo.nombre}`;
+          edadUsuario.innerHTML = `${userInfo.edad}` + ` años`;
+
           infoNombre.innerHTML = `${userInfo.nombre}`;
           infoEdad.innerHTML = `${userInfo.edad}`;
           infoSexo.innerHTML = `${userInfo.sexo}`;
           infoTelefono.innerHTML = `${userInfo.telefono}`;
-          infoCorreo.innerHTML = `${userInfo.correo}`;
+          infoCorreo.innerHTML = `${userInfo.email}`;
           infoAntecedentes.innerHTML = `${userInfo.antecedentes}`;
           infoMedicamentos.innerHTML = `${userInfo.medicamentos}`;
           infoAlergias.innerHTML = `${userInfo.alergias}`;
@@ -112,7 +120,7 @@ function setProfile( responseJSON ){
           inputEdad.value = `${userInfo.edad}`;
           inputSexo.value = `${userInfo.sexo}`;
           inputTelefono.value = `${userInfo.telefono}`;
-          inputCorreo.value = `${userInfo.correo}`;
+          inputCorreo.value = `${userInfo.email}`;
           inputAntecedentes.value = `${userInfo.antecedentes}`;
           inputMedicamentos.value = `${userInfo.medicamentos}`;
           inputAlergias.value = `${userInfo.alergias}`;
@@ -130,12 +138,12 @@ function updateInfo(inputNombre, inputEdad, inputSexo, inputTelefono, inputCorre
   let url = "/api/users/updateInfo";
 
   let data = {
-      //user_id : currentUserId,
+      user_id : currentUserId,
       nombre : inputNombre,
       edad : inputEdad,
       sexo : inputSexo,
       telefono : inputTelefono,
-      correo : inputCorreo,
+      email : inputCorreo,
       antecedentes : inputAntecedentes,
       medicamentos : inputMedicamentos,
       alergias : inputAlergias,
@@ -187,15 +195,6 @@ function updateInfo(inputNombre, inputEdad, inputSexo, inputTelefono, inputCorre
   });
 }
 
-//Watch form
-function watchUserForm(){
-  let form = document.querySelector( '.userForm' );
-
-  userForm.addEventListener( 'click' , ( event ) => {
-      
-  })
-}
-
 
 function watchEditBtn(){
   let editBtn = document.querySelector( '.editBtn' );
@@ -208,7 +207,7 @@ function watchEditBtn(){
   let inputAntecedentes = document.querySelector("#input_antecedentes");
   let inputMedicamentos = document.querySelector("#input_medicamentos");
   let inputAlergias = document.querySelector("#input_alergias");
-  let inputDiscapacidaddes = document.querySelector("#input_discapacidades");
+  let inputDiscapacidades = document.querySelector("#input_discapacidades");
 
 
 
@@ -220,11 +219,14 @@ function watchEditBtn(){
   let infoAntecedentes = document.querySelector("#info_antecedentes");
   let infoMedicamentos = document.querySelector("#info_medicamentos");
   let infoAlergias = document.querySelector("#info_alergias");
-  let infoDiscapacidaddes = document.querySelector("#info_discapacidades");
+  let infoDiscapacidades = document.querySelector("#info_discapacidades");
 
   editBtn.addEventListener( 'click' , ( event ) => {
 
     if (inputNombre.classList.contains("hidden")){
+
+      editBtn.innerHTML = "ACEPTAR";
+
       inputNombre.classList.remove("hidden");
       inputEdad.classList.remove("hidden");
       inputSexo.classList.remove("hidden");
@@ -233,7 +235,7 @@ function watchEditBtn(){
       inputAntecedentes.classList.remove("hidden");
       inputMedicamentos.classList.remove("hidden");
       inputAlergias.classList.remove("hidden");
-      inputDiscapacidaddes.classList.remove("hidden");
+      inputDiscapacidades.classList.remove("hidden");
 
       infoNombre.classList.add("hidden");
       infoEdad.classList.add("hidden");
@@ -243,7 +245,7 @@ function watchEditBtn(){
       infoAntecedentes.classList.add("hidden");
       infoMedicamentos.classList.add("hidden");
       infoAlergias.classList.add("hidden");
-      infoDiscapacidaddes.classList.add("hidden");
+      infoDiscapacidades.classList.add("hidden");
     }
 
     else{
@@ -251,6 +253,9 @@ function watchEditBtn(){
       updateInfo(inputNombre.value, inputEdad.value, inputSexo.value,
          inputTelefono.value, inputCorreo.value, inputAntecedentes.value,
           inputMedicamentos.value, inputAlergias.value, inputDiscapacidades.value)
+
+
+      editBtn.innerHTML = "EDITAR PERFIL";
 
       inputNombre.classList.add("hidden");
       inputEdad.classList.add("hidden");
@@ -260,7 +265,7 @@ function watchEditBtn(){
       inputAntecedentes.classList.add("hidden");
       inputMedicamentos.classList.add("hidden");
       inputAlergias.classList.add("hidden");
-      inputDiscapacidaddes.classList.add("hidden");
+      inputDiscapacidades.classList.add("hidden");
 
       infoNombre.classList.remove("hidden");
       infoEdad.classList.remove("hidden");
@@ -270,7 +275,7 @@ function watchEditBtn(){
       infoAntecedentes.classList.remove("hidden");
       infoMedicamentos.classList.remove("hidden");
       infoAlergias.classList.remove("hidden");
-      infoDiscapacidaddes.classList.remove("hidden");
+      infoDiscapacidades.classList.remove("hidden");
     }
   })
 }
@@ -278,7 +283,7 @@ function watchEditBtn(){
 
 function init(){
   //Startup
-  //validateUser();
+  validateUser();
 
   watchEditBtn();
 }
