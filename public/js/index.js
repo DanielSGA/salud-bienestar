@@ -83,6 +83,22 @@ function userLoginFetch( email, password ){
         })
         .catch( err => {
             //results.innerHTML = `<div> ${err.message} </div>`;
+            let url = '/api/profesionales/login';
+            fetch( url, settings )
+                .then( response => {
+                    if( response.ok ){
+                        return response.json();
+                    }
+                    throw new Error( response.statusText );
+                })
+                .then( responseJSON => {
+                    localStorage.setItem( 'token', responseJSON.token );
+                    window.location.href = "/pages/perfil_profesional.html";
+                })
+                .catch( err => {
+
+        });
+
         });
 }
 
