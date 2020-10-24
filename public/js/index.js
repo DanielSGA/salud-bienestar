@@ -15,11 +15,12 @@ sign_in_btn.addEventListener('click', () => {
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////// NODE  FETCH /////////////////////////////////
 
-function userSignupFetch( email, password){
+function userSignupFetch( nombre, email, password){
     console.log("in signup fetch");
     let url = '/api/users/signup';
 
     let data = {
+        nombre,
         email,
         password
     }
@@ -31,6 +32,7 @@ function userSignupFetch( email, password){
         },
         body : JSON.stringify( data )
     }
+    
 
     //let results = document.querySelector( '.signup_Results' );
 
@@ -42,7 +44,6 @@ function userSignupFetch( email, password){
             throw new Error( response.statusText );
         })
         .then( responseJSON => {
-            console.log("in login fetch2");
             userLoginFetch( data.email, data.password )
         })
         .catch( err => {
@@ -82,6 +83,22 @@ function userLoginFetch( email, password ){
         })
         .catch( err => {
             //results.innerHTML = `<div> ${err.message} </div>`;
+            let url = '/api/profesionales/login';
+            fetch( url, settings )
+                .then( response => {
+                    if( response.ok ){
+                        return response.json();
+                    }
+                    throw new Error( response.statusText );
+                })
+                .then( responseJSON => {
+                    localStorage.setItem( 'token', responseJSON.token );
+                    window.location.href = "/pages/perfil_profesional.html";
+                })
+                .catch( err => {
+
+        });
+
         });
 }
 
@@ -106,11 +123,11 @@ function watchSignupForm(){
 
     loginForm.addEventListener( 'submit' , ( event ) => {
         event.preventDefault();
-        //let usuario = document.getElementById( 'usuario_signup' ).value;
+        let nombre = document.getElementById( 'usuario_signup' ).value;
         let correo = document.getElementById( 'correo_signup' ).value;
         let password = document.getElementById( 'password_signup' ).value;
 
-        userSignupFetch( correo, password );
+        userSignupFetch( nombre, correo, password );
     })
 }
 

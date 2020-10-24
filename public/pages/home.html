@@ -15,7 +15,7 @@
         <!-- Bootstrap-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <!-- Minified CSS for awsome fonts -->
-        <link rel="stylesheet" type="text/css" href="../css/all.min.css">
+        <!--<link rel="stylesheet" type="text/css" href="../css/all.min.css">-->
         <!-- CSS -->
         <link rel="stylesheet" href="../css/estilos.css">
         <!-- Simbolo de pestaña ICO -->
@@ -42,7 +42,7 @@
                                 <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a href="" class="active texto-nav"><p>Inicio</p></a>
+                                <a href="home.html" class="active texto-nav"><p>Inicio</p></a>
                             </div>
                         </li>
                         <li class="columnas-display-grid">
@@ -50,7 +50,7 @@
                                <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
                             </div>
                             <div>
-                                <a href="" class="texto-nav"><p>Doctores</p></a>
+                                <a href="listado.html" class="texto-nav"><span>Profesionales de la salud</span></a>
                             </div>
                         </li>
                         <li class="columnas-display-grid">
@@ -94,11 +94,11 @@
 
                   
                     <!--Avatar -->
-                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                    <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-top: 200px;">
                         <li class="nav-item avatar columnas-avatar-nav">
                             <div>
                                 <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
                                 </a>
                             </div>
                             <div class="texto-nav">
@@ -115,11 +115,126 @@
             <div id="text-area" class="padding1em">
                 <div class="container-fluid">
                     <!-- Fila de arriba -->
-                    <h3 class="marginTop2em">Bienvenido Daniel!</h3>
+                    <div class="marginTop2em">Bienvenido, Daniel</div>
 
-                    <p class="marginTop2em letras-rojas">Agenda una consulta médica</p>
+                    <div class="redheader-agenda">Agenda una consulta</div>
 
-                    <div class="columnas-home-agenda">
+                    <div class="container-fluid section1">
+                        <div class="row">
+                            <div class="col-4 section">
+                                <div class="section-header">1. Selecciona la especialidad</div>
+                                <div class="row" style="margin-top: 24px; margin-left: -8px;">
+                                    <div class="col">
+                                        <button class="esp-button-blue"><img class="button-icon" src="../img/general.png" alt=""></button>
+                                        <div class="esp-doctor" style="position: absolute; margin-left: -10px;">Médico general</div>
+                                    </div>
+                                    <div class="col">
+                                        <button class="esp-button-red"><img class="button-icon" src="../img/psi.png" alt=""></button>
+                                        <div class="esp-doctor" style="padding-left: 8px;">Psicólogo</div>
+                                    </div>
+                                    <div class="col">
+                                        <button class="esp-button-blue"><img class="button-icon" src="../img/nutri.png" alt=""></button>
+                                        <div class="esp-doctor" style="margin-left: 6px;">Nutriólogo</div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 24px; margin-left: -8px;">
+                                    <div class="col">
+                                        <button class="esp-button-red"><img class="button-icon" src="../img/gine.png" alt=""></button>
+                                        <div class="esp-doctor">Ginecólogo</div>
+                                    </div>
+                                    <div class="col">
+                                        <button class="esp-button-blue"><img class="button-icon" src="../img/pediatra.png" alt=""></button>
+                                        <div class="esp-doctor" style="margin-left: 10px;">Pediatra</div>
+                                    </div>
+                                    <div class="col">
+                                        <button class="esp-button-red"><img class="button-icon" src="../img/derma.png" alt=""></button>
+                                        <div class="esp-doctor" style="margin-left: -3px;">Dermatólogo</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 section" hidden>
+                                <div class="section-header">2. ¿Qué deseas tratar?</div>
+                                <div class="row">
+                                    <div class="col">
+                                        <form class="checklist">
+                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1"> Dolor de cabeza</label><br>
+                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                            <label for="vehicle2"> Dolor de estómago</label><br>
+                                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                                            <label for="vehicle3"> Náuseas</label><br>
+                                            <input type="checkbox" id="vehicle4" name="vehicle4" value="Plane">
+                                            <label for="vehicle4"> Vista Borrosa</label><br>
+                                            <input type="checkbox" id="vehicle5" name="vehicle5" value="Tractor">
+                                            <label for="vehicle5"> Otro</label><br>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7 section-doc">
+                                <div>
+                                    <span class="section-header">2. Selecciona a un profesional de la salud</span>
+                                    <a href="" class="viewmore-link">Ver más doctores</a>
+                                </div>
+                                <div class="row" style="margin-top: 24px;">
+                                    <div class="col doc-div" style="text-align: center; padding: 0;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Juan Pérez</div>
+                                    </div>
+                                    <div class="col doc-div" style="text-align: center;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Adrián Álvarez</div>
+                                    </div>
+                                    <div class="col doc-div" style="text-align: center;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Daniel Saldaña</div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 24px;">
+                                    <div class="col doc-div" style="text-align: center;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Arturo Méndez</div>
+                                    </div>
+                                    <div class="col doc-div" style="text-align: center;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Carlos Gomez</div>
+                                    </div>
+                                    <div class="col doc-div" style="text-align: center;">
+                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <div class="esp-doctor">Dr. Gabriel Garza</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 section2">
+                                <div class="redheader-sec2">Tus próximas citas</div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cita-info">
+                                            <div class="cita-date">Domingo 27 de Septiembre</div>
+                                            <div class="cita-time">10:00 a.m. -> 11:30 a.m.</div>
+                                            <div class="cita-doctor">Dr. Juan Pérez - Médico General</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cita-info">
+                                            <div class="cita-date">Lunes 28 de Septiembre</div>
+                                            <div class="cita-time">6:00 p.m. -> 6:30 p.m.</div>
+                                            <div class="cita-doctor">Dr. Adrián Álvarez - Psicólogo</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 section2">
+                                <div class="redheader-sec2">Últimas publicaciones</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columnas-home-agenda" hidden>
                         <div>
                             <!-- Especialidad -->
                             <div>
@@ -207,7 +322,7 @@
 
                     <!-- FIla de abajo-->
                     <div>
-                        <div class="container-fluid columnas-home-citas">
+                        <div class="container-fluid columnas-home-citas" hidden>
                             <!-- Columna izquierda-->
                             <div>
                                 <p class="marginTop2em letras-rojas">Tus próximas citas</p>
@@ -260,6 +375,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <!-- JavaScript -->
+        <script src="../js/home.js"></script>
         <script src="../js/scripts.js"></script>
     </body>
 
