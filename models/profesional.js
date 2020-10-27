@@ -30,6 +30,10 @@ const profesionalSchema = mongoose.Schema({
 
     especialidades: {
         type: String
+    },
+
+    titulo: {
+        type: String
     }
 });
 
@@ -76,11 +80,21 @@ const Profesionales = {
                     throw new Error( err.message );
                 }); 
     },
-    updateProfesionalInfo : function( profesional_id, nombre, telefono, email, certificaciones, especialidades){
+    getProfesionalesPorTitulo : function( titulo){
+        return profesionalModel
+                .find( { titulo } )
+                .then( profesionales => {
+                    return profesionales;
+                })
+                .catch( err => {
+                    throw new Error( err.message );
+                });
+    },
+    updateProfesionalInfo : function( profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo){
         return profesionalModel
                 .updateOne({ _id: profesional_id },{ $set : { nombre : nombre,
                      telefono : telefono, email : email, certificaciones : certificaciones,
-                      especialidades : especialidades}})
+                      especialidades : especialidades, titulo : titulo}})
                 .then( userUpdated => {
                     return userUpdated;
                 })

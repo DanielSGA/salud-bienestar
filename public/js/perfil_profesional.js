@@ -73,11 +73,24 @@ function setProfile( responseJSON ){
   let infoCertificaciones = document.querySelector("#info_certificaciones");
   let infoEspecialidades = document.querySelector("#info_especialidades");
 
+  let infoTitulo = document.querySelector("#info_titulo");
+
+
+
   let inputNombre = document.querySelector("#input_nombre");
   let inputTelefono = document.querySelector("#input_telefono");
   let inputCorreo = document.querySelector("#input_correo");
   let inputCertificaciones = document.querySelector("#input_certificaciones");
   let inputEspecialidades = document.querySelector("#input_especialidades");
+
+  var elements = document.getElementsByName('optradio');
+    var inputTitulo = '';
+    elements.forEach(e => {
+        if (e.checked) {
+            //if radio button is checked, set sort style
+            inputTitulo = e.value;
+        }
+    });
 
 
   
@@ -146,6 +159,16 @@ function setProfile( responseJSON ){
             infoEspecialidades.innerHTML = ``;
             inputEspecialidades.value = ``;
           }
+
+          if (userInfo.titulo != null){
+            infoTitulo.innerHTML = `${userInfo.titulo}`;
+            inputTitulo.checked = `${userInfo.titulo}`;
+            console.log(userInfo.titulo);
+          }
+          else{
+            infoTitulo.innerHTML = ``;
+            inputTitulo.checked = ``;
+          }
           
       })
       .catch( err => {
@@ -155,7 +178,9 @@ function setProfile( responseJSON ){
 }
 
 //Update info
-function updateInfo(inputNombre, inputTelefono, inputCorreo, inputCertificaciones, inputEspecialidades){
+function updateInfo(inputNombre, inputTelefono, inputCorreo, inputCertificaciones, inputEspecialidades, inputTitulo){
+  console.log("EL que le mandas:")
+  console.log(inputTitulo)
   let url = "/api/profesionales/updateInfo";
 
   let data = {
@@ -164,7 +189,8 @@ function updateInfo(inputNombre, inputTelefono, inputCorreo, inputCertificacione
       telefono : inputTelefono,
       email : inputCorreo,
       certificaciones : inputCertificaciones,
-      especialidades : inputEspecialidades
+      especialidades : inputEspecialidades,
+      titulo : inputTitulo
   }
 
   let settings = {
@@ -221,6 +247,13 @@ function watchEditBtn(){
   let inputCertificaciones = document.querySelector("#input_certificaciones");
   let inputEspecialidades = document.querySelector("#input_especialidades");
 
+  //let inputTitulo = document.querySelector('input[name="optradio"]:checked');
+  //let inputTitulo = document.querySelector('input[name = optradio]:checked').value
+
+
+  let formInputTitulo = document.querySelector(".formTitulo");
+
+
 
 
   let infoNombre = document.querySelector("#info_nombre");
@@ -229,7 +262,18 @@ function watchEditBtn(){
   let infoCertificaciones = document.querySelector("#info_certificaciones");
   let infoEspecialidades = document.querySelector("#info_especialidades");
 
+  let infoTitulo = document.querySelector("#info_titulo");
+
   editBtn.addEventListener( 'click' , ( event ) => {
+
+    var elements = document.getElementsByName('optradio');
+    var inputTitulo;
+    elements.forEach(e => {
+        if (e.checked) {
+            //if radio button is checked, set sort style
+            inputTitulo = e.value;
+        }
+    });
 
     if (inputNombre.classList.contains("hidden")){
 
@@ -240,17 +284,20 @@ function watchEditBtn(){
       inputCorreo.classList.remove("hidden");
       inputCertificaciones.classList.remove("hidden");
       inputEspecialidades.classList.remove("hidden");
+      formInputTitulo.classList.remove("hidden");
 
       infoNombre.classList.add("hidden");
       infoTelefono.classList.add("hidden");
       infoCorreo.classList.add("hidden");
       infoCertificaciones.classList.add("hidden");
       infoEspecialidades.classList.add("hidden");
+      infoTitulo.classList.add("hidden");
+
     }
 
     else{
 
-      updateInfo(inputNombre.value, inputTelefono.value, inputCorreo.value, inputCertificaciones.value, inputEspecialidades.value)
+      updateInfo(inputNombre.value, inputTelefono.value, inputCorreo.value, inputCertificaciones.value, inputEspecialidades.value, inputTitulo)
 
 
       editBtn.innerHTML = "EDITAR PERFIL";
@@ -260,12 +307,14 @@ function watchEditBtn(){
       inputCorreo.classList.add("hidden");
       inputCertificaciones.classList.add("hidden");
       inputEspecialidades.classList.add("hidden");
+      formInputTitulo.classList.add("hidden");
 
       infoNombre.classList.remove("hidden");
       infoTelefono.classList.remove("hidden");
       infoCorreo.classList.remove("hidden");
       infoCertificaciones.classList.remove("hidden");
       infoEspecialidades.classList.remove("hidden");
+      infoTitulo.classList.remove("hidden");
     }
   })
 }
