@@ -693,14 +693,21 @@ input[type='checkbox'] {
 
 .title {
 	margin-top: 64px;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 700;
 	margin-left: 32px;
 }
 
 .listado-desc {
-	margin: 24px 88px 40px 32px;
+	margin: 24px 88px 32px 32px;
 	font-size: 14px;
+}
+
+.subtitle {
+	font-size: 16px;
+	font-weight: 600;
+	margin-left: 32px;
+	margin: 0 0 32px 32px;
 }
 
 .no-padding {
@@ -779,4 +786,53 @@ input[type='checkbox'] {
 	font-weight: 500;
 	font-size: 12px;
 	margin-top: 8px;
+}
+
+/* Bibliotecas */
+
+.category-box {
+	background-color: white;
+	border-radius: 15px;
+	padding: 16px 24px 16px 32px;
+	box-shadow: 0 4px 11px -4px #cbcbcb;
+	width: 360px;
+	height: 192px;
+	margin: 0 0 40px 0;
+}
+
+.cat-name {
+	font-size: 18px;
+	font-weight: 600;
+	color: #0374b9;
+}
+
+.cat-name:hover {
+	text-decoration: underline;
+	color: #0374b9;
+}
+
+.cat-desc {
+	font-size: 12px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	padding-right: 8px;
+}
+
+.cat-link {
+	font-size: 11px;
+	color: #0374b9;
+}
+
+.cat-link:hover {
+	color: #0374b9;
+	text-decoration: underline;
+}
+
+.img-cont {
+	padding: 45px 0 45px 0;
+}
+
+.cat-img {
+	height: 64px;
+	width: 64px;
 }
