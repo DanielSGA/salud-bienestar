@@ -76,9 +76,12 @@ function setProfesionales( titulo ){
                 for (k = 0; k< profesionales.length; k++) {
 
                     sectProfesionales.innerHTML += `
+                    
                     <div class="col">
+                    <a class = "a2" href ="/pages/perfil_profesional_paciente.html"> 
                             <div class="prof-element container">
                                 <div class="row" style="padding: 0;">
+
                                     <div class="col-4" style="padding: 6px 0 6px 0;">
                                         <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
                                     </div>
@@ -87,8 +90,11 @@ function setProfesionales( titulo ){
                                         <div class="prof-spec">${profesionales[k].titulo}</div>
                                         <div class="prof-info">Especialista en ${profesionales[k].especialidades}</div>
                                     </div>
+
                                 </div>
                             </div>
+                            </a>
+
                         </div>
                     `
                 }
@@ -114,6 +120,8 @@ function navigationBarEvent(){
             //Esconde la que está desplegada actualmente.
             let selectedSection = document.querySelector(".actual");
             selectedSection.classList.remove("actual");
+            selectedSection.classList.remove("text-actual");
+
 
             //event.target se usa para targetear al elemento al que se le hizo click.
             let currentElement = event.target.id;
@@ -125,6 +133,7 @@ function navigationBarEvent(){
             let elementToShow = document.querySelector("#" + currentElement);
             //Mostrar al que se le hizo click
             elementToShow.classList.add("actual");
+            elementToShow.classList.add("text-actual");
 
             if (currentElement == "MedicoGeneral"){
                 currentElement = "Medico General"

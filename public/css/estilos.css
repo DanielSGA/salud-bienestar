@@ -50,6 +50,10 @@ a{
 	color: #fff;
 }
 
+.a2{
+	color: black;
+}
+
 .color-nav{
 	background-color: #0374b9;
 	z-index: -1;
@@ -753,6 +757,14 @@ input[type='checkbox'] {
 
 .list-button-blue:hover {
 	background-color: rgba(3, 116, 185);
+}
+
+.list-button-blue:hover .esp-list{
+	color: white;
+}
+
+.no-click {
+	pointer-events: none;
 }
 
 .list-button-red:hover {
