@@ -741,6 +741,11 @@ input[type='checkbox'] {
 	box-shadow: 0 4px 11px -4px #414141;
 }
 
+.actual2 {
+	background-color: rgba(3, 116, 185);
+	box-shadow: 0 4px 11px -4px #414141;
+}
+
 .text-actual {
 	color: white;
 }
