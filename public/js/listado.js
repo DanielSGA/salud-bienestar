@@ -78,7 +78,7 @@ function setProfesionales( titulo ){
                     sectProfesionales.innerHTML += `
                     
                     <div class="col">
-                    <a class = "a2" href ="/pages/perfil_profesional_paciente.html"> 
+                    <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
                             <div class="prof-element container">
                                 <div class="row" style="padding: 0;">
 
