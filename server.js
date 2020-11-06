@@ -14,6 +14,7 @@ app.use( express.static( "public" ) );
 //importing models
 const { Users } = require('./models/user');
 const { Profesionales } = require('./models/profesional');
+const { Admins } = require('./models/admin');
 const { DATABASE_URL, PORT, SECRET_TOKEN } = require( './config' );
 
 app.use(bodyParser.json()); //converts the data to JSON format
@@ -221,6 +222,137 @@ app.patch( '/api/users/updateInfo', jsonParser, ( req, res ) =>{
     });
 })
 
+//                                      ADMINS
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+//Get all admins
+app.get('/api/admins', (req, res) => {
+    console.log("Getting the list of all admins" );
+
+    Admins
+        .getAllAdmins()
+        .then( result => {
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            return res.status( 500 ).end();
+        });
+
+});
+
+//Get admin by _id
+app.get( '/api/get-adminby_id', jsonParser, ( req, res ) => {
+
+    let id = req.query._id;
+
+    if( !id){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Admins
+        .getAdminByID( id )
+        .then( result => {
+
+            if (result.length == 0){
+                res.statusMessage = `No admins with the id = ${id} were found on the list.`;
+                return res.status ( 404 ).end();
+            }
+
+            //Return status text and user parsed as a json object.
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            console.log(err)
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+});
+
+app.post( '/api/admins/login', jsonParser, ( req, res ) => {
+    let { email, password } = req.body;
+
+    if( !email || !password ){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Admins
+        .getAdminByEmail( email )
+        .then( user => {
+
+            if( user ){
+                bcrypt.compare( password, user.password )
+                    .then( result => {
+                        if( result ){
+                            let userData = {
+                                username : user.username,
+                                email : user.email,
+                                _id : user._id
+                            };
+
+                            jsonwebtoken.sign( userData, SECRET_TOKEN, { expiresIn : '30m' }, ( err, token ) => {
+                                if( err ){
+                                    res.statusMessage = "Something went wrong with generating the token.";
+                                    return res.status( 400 ).end();
+                                }
+                                return res.status( 200 ).json( { token } );
+                            });
+                        }
+                        else{
+                            throw new Error( "Invalid credentials" );
+                        }
+                    })
+                    .catch( err => {
+                        res.statusMessage = err.message;
+                        return res.status( 400 ).end();
+                    });
+            }
+            else{
+                throw new Error( "Admin doesn't exist!" );
+            }
+        })
+        .catch( err => {
+            res.statusMessage = err.message;
+            return res.status( 400 ).end();
+        });
+});
+
+app.post( '/api/admins/signup', jsonParser, ( req, res ) => {
+    let {nombre, email, password} = req.body;
+
+    if(!nombre || !email || !password){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+    
+    bcrypt.hash( password, 10 )
+        .then( hashedPassword => {
+            let newUser = {
+                nombre : nombre,
+                password : hashedPassword, 
+                email
+            };
+
+            Admins
+                .createAdmin( newUser )
+                .then( result => {
+                    return res.status( 201 ).json( result ); 
+                })
+                .catch( err => {
+                    res.statusMessage = err.message;
+                    return res.status( 400 ).end();
+                });
+        })
+        .catch( err => {
+            res.statusMessage = err.message;
+            return res.status( 400 ).end();
+        });
+});
+
 
 //                                   PROFESIONALES
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -366,7 +498,6 @@ app.post( '/api/profesionales/signupcontitulo', jsonParser, ( req, res ) => {
             return res.status( 400 ).end();
         });
 });
-
 
 app.post( '/api/profesionales/login', jsonParser, ( req, res ) => {
     let { email, password } = req.body;

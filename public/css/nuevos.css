@@ -22,7 +22,7 @@
 	color: black;
 }
 
-.editBtn{
+.editBtn, .addBtn{
 	width: 180px;
 	height: 40px;
 	margin: 10px;

@@ -96,8 +96,22 @@ function userLoginFetch( email, password ){
                     window.location.href = "/pages/perfil_profesional.html";
                 })
                 .catch( err => {
+                    let url = '/api/admins/login';
+                    fetch( url, settings )
+                    .then( response => {
+                        if( response.ok ){
+                            return response.json();
+                        }
+                        throw new Error( response.statusText );
+                        })
+                    .then( responseJSON => {
+                        localStorage.setItem( 'token', responseJSON.token );
+                        window.location.href = "/pages/perfil_admin.html";
+                        })
+                    .catch( err => {
 
-        });
+                    });
+                });
 
         });
 }
