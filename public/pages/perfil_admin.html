@@ -166,59 +166,81 @@
                                     <button type="button" class = "line-height boton-perfil-diseño margin-sides addBtn">AÑADIR</button> 
                                 </div>
                             </form>
-
                         </div>
                         <!-- Fin Columna Izquierda -->
 
                         <!-- Columna Derecha -->
                         <div class="container-fluid">
-                            <p class="marginTop2em letras-rojas margin-bottom">Información profesional</p>
+                            <p class="marginTop2em letras-rojas">Editar la información de un Profesional de la Salud</p>
+                            <p class= "margin-left marginTopem margin-bottom"> Primero escoge en la lista el profesional, y escribe en los campos que desees modificar.
+                            </p>
 
-                            <!-- Titulo -->
-                            <div class="line-heigh margin-bottom">
-                                <p class="bold">Título</p>
-                                <form class = 'formTitulo hidden'>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Médico General">Médico General
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Psicólogo">Psicólogo
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Nutriologo">Nutriologo
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Ginecólogo">Ginecólogo
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Pediatra">Pediatra
-                                  </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" name="optradio" value = "Dermatologo">Dermatologo
-                                  </label>
-                                </form>
-                                <p id = "info_titulo"></p>
-                              </div>
-
-                            <!-- Certificaciones -->
-                            <div class="line-heigh margin-bottom">
-                                <p class="bold">Certificaciones</p>
-                                <div class ="editContainer">
-                                    <p id = "info_certificaciones"></p>
-                                    <input type="text" id="input_certificaciones" placeholder="Certificaciones" name="Certificaciones" class = "userInput hidden" value = "Lorem ipsum dolor sit amet,
-                                     consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."  autocomplete="off">
+                            <form>
+                                 <!-- PROFESIONAL -->
+                                 <div class ="margin-left editContainer">
+                                    <p class = "bold"> Profesional de la Salud</p>
+                                    <select id = "profesionalList">
+                                        <option value = "0">ninguno</option>
+                                    </select>
                                 </div>
-                            </div>
-
-                            <!-- Medicamentos -->
-                            <div class="line-heigh margin-bottom">
-                                <p class="bold">Areas de especialidad</p>
-                                <div class ="editContainer">
-                                    <p id = "info_especialidades"></p>
-                                    <input type="text" id="input_especialidades" placeholder="Especialidades" name="Especialidades" class = "userInput hidden" value = "Lorem ipsum dolor sit amet,"  autocomplete="off">
+                                 <!-- NOMBRE -->
+                                <div class ="margin-left editContainer">
+                                    <p class = "bold">Nombre Completo</p>
+                                    <input type="text" id="input_nombre_edit" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
                                 </div>
-                            </div>
+                                 <!-- EMAIL -->
+                                 <div class ="margin-left editContainer">
+                                    <p class = "bold">Correo</p>
+                                    <input type="text" id="input_correo_edit" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
+                                </div>
+                                <!-- TELEFONO -->
+                                <div class ="margin-left editContainer">
+                                    <p class = "bold">Teléfono</p>
+                                    <input type="text" id="input_telefono_edit" placeholder="Teléfono" name="telefono" class = "userInput"  autocomplete="off">
+                                </div>
+                                 <!-- CERTIFICACIONES -->
+                                 <div class ="margin-left editContainer">
+                                    <p class = "bold">Certificaciones</p>
+                                    <input type="text" id="input_certificaciones_edit" placeholder="Certificaciones" name="certificaciones" class = "userInput"  autocomplete="off">
+                                </div>
+                                <!-- AREAS DE ESPECIALIDAD -->
+                                <div class ="margin-left editContainer">
+                                    <p class = "bold">Áreas de Especialidad</p>
+                                    <input type="text" id="input_especialidades_edit" placeholder="Especialidades" name="especialidades" class = "userInput"  autocomplete="off">
+                                </div>
+                                <!-- Titulo -->
+                                <div class="margin-left editContainer">
+                                    <p class="bold">Título</p>
+                                    <form class = 'formTitulo'>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Medico General">Médico General
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Psicologo">Psicólogo
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Nutriologo">Nutriologo
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Ginecologo">Ginecólogo
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Pediatra">Pediatra
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="optradio" value = "Dermatologo">Dermatólogo
+                                    </label>
+                                    </form>
+                                </div>
+
+                                <div class= "results2 margin-left">
+                                </div>
+                                
+                                <div>
+                                    <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
+                                    <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn">EDITAR</button> 
+                                </div>
+                            </form>
                         </div>
                         <!-- Fin Columna Derecha -->
 

@@ -162,8 +162,17 @@ function setProfile( responseJSON ){
 
           if (userInfo.titulo != null){
             infoTitulo.innerHTML = `${userInfo.titulo}`;
-            inputTitulo.checked = `${userInfo.titulo}`;
-            console.log(userInfo.titulo);
+            //inputTitulo.checked = `${userInfo.titulo}`;
+
+            elements.forEach(e => {
+              if (e.value == userInfo.titulo) {
+                  //if radio button is checked, set sort style
+                  e.checked = true;
+              }
+              else{
+                e.checked = false;
+              }
+          });
           }
           else{
             infoTitulo.innerHTML = ``;
