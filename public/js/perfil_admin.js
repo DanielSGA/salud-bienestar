@@ -209,6 +209,109 @@ function watchList()
     })
 }
 
+
+function watchPacienteList()
+{
+    let list = document.querySelector("#pacienteList");
+
+
+    let inputNombre = document.querySelector("#input_nombre_edit_paciente");
+    let inputCorreo = document.querySelector("#input_correo_edit_paciente");
+    let inputEdad = document.querySelector("#input_edad_edit_paciente");
+    let inputSexo = document.querySelector("#input_sexo_edit_paciente");
+    let inputTelefono = document.querySelector("#input_telefono_edit_paciente");
+    let inputAntecedentes = document.querySelector("#input_antecedentes_edit_paciente");
+    let inputMedicamentos = document.querySelector("#input_medicamentos_edit_paciente");
+    let inputAlergias = document.querySelector("#input_alergias_edit_paciente");
+    let inputDiscapacidades = document.querySelector("#input_discapacidades_edit_paciente");
+
+    list.addEventListener( 'change' , ( event ) => {
+        //HAcer fetch del paciente con el id del value y poner los valores en los inputs.
+        //Get info by user id
+    let url = `/api/get-userby_id?_id=${list.value}`;
+    let settings = {
+        method : 'GET'
+    }
+    fetch( url, settings )
+        .then( response => {
+            if( response.ok ){
+                return response.json();
+            }
+            throw new Error( response.statusText );
+        })
+        .then( userInfo => {
+
+            if (userInfo.nombre != null){
+                inputNombre.value = `${userInfo.nombre}`;
+            }
+            else{
+                inputNombre.value = ``;
+            }
+            
+            if (userInfo.telefono != null){
+                inputTelefono.value = `${userInfo.telefono}`;
+            }
+            else{
+                inputTelefono.value = ``;
+            }
+            
+            if (userInfo.email != null){
+                inputCorreo.value = `${userInfo.email}`;
+            }
+            else{
+                inputCorreo.value = ``;
+            }
+            
+            if (userInfo.edad != null){
+                inputEdad.value = `${userInfo.edad}`;
+            }
+            else{
+                inputEdad.value = ``;
+            }
+
+            if (userInfo.sexo != null){
+                inputSexo.value = `${userInfo.sexo}`;
+            }
+            else{
+                inputSexo.value = ``;
+            }
+
+            if (userInfo.antecedentes != null){
+                inputAntecedentes.value = `${userInfo.antecedentes}`;
+            }
+            else{
+                inputAntecedentes.value = ``;
+            }
+
+            if (userInfo.medicamentos != null){
+                inputMedicamentos.value = `${userInfo.medicamentos}`;
+            }
+            else{
+                inputMedicamentos.value = ``;
+            }
+
+            if (userInfo.alergias != null){
+                inputAlergias.value = `${userInfo.alergias}`;
+            }
+            else{
+                inputAlergias.value = ``;
+            }
+
+            if (userInfo.discapacidades != null){
+                inputDiscapacidades.value = `${userInfo.discapacidades}`;
+            }
+            else{
+                inputDiscapacidades.value = ``;
+            }
+            
+        })
+        .catch( err => {
+            console.log( err.message );
+        });
+
+    })
+}
+
 function populateProfessionalList()
 {
     let list = document.querySelector("#profesionalList");
@@ -241,8 +344,40 @@ function populateProfessionalList()
     });
 }
 
+function popilatePacienteList()
+{
+    let list = document.querySelector("#pacienteList");
+    list.innerHTML = `<option value = "0">ninguno</option>`;
+    
+    let url = '/api/users';
+
+    let settings = {
+        method : 'GET',
+        headers : {
+            sessiontoken : localStorage.getItem( 'token' )
+        }
+    };
+    
+    fetch( url, settings )
+    .then( response => {
+        if( response.ok ){
+            return response.json();
+        }
+        throw new Error( response.statusText );
+    })
+    .then( responseJSON => {
+        //console.log(responseJSON);
+        for (let i = 0; i < responseJSON.length; i++){
+            list.innerHTML += `<option value = "${responseJSON[i]._id}">${responseJSON[i].nombre}</option>`;
+        }
+    })
+    .catch( err => {
+        console.log(err);
+    });
+}
+
 function watchEditProfesionalesBtn(){
-    let editBtn = document.querySelector( '.editBtn' );
+    let editBtn = document.querySelector( '.editProfesional' );
     
     let inputNombre = document.querySelector("#input_nombre_edit");
     let inputTelefono = document.querySelector("#input_telefono_edit");
@@ -347,13 +482,119 @@ function updateInfoProf(id, inputNombre, inputTelefono, inputCorreo, inputCertif
     });
   }
 
+  function watchEditPacientesBtn(){
+    let editBtn = document.querySelector( '.editPaciente' );
+    
+    let inputNombre = document.querySelector("#input_nombre_edit_paciente");
+    let inputCorreo = document.querySelector("#input_correo_edit_paciente");
+    let inputEdad = document.querySelector("#input_edad_edit_paciente");
+    let inputSexo = document.querySelector("#input_sexo_edit_paciente");
+    let inputTelefono = document.querySelector("#input_telefono_edit_paciente");
+    let inputAntecedentes = document.querySelector("#input_antecedentes_edit_paciente");
+    let inputMedicamentos = document.querySelector("#input_medicamentos_edit_paciente");
+    let inputAlergias = document.querySelector("#input_alergias_edit_paciente");
+    let inputDiscapacidades = document.querySelector("#input_discapacidades_edit_paciente");
+
+    let list = document.querySelector("#pacienteList");
+
+  
+    //let inputTitulo = document.querySelector('input[name="optradio"]:checked');
+    //let inputTitulo = document.querySelector('input[name = optradio]:checked').value
+  
+    editBtn.addEventListener( 'click' , ( event ) => {
+
+      updateInfoPaciente(list.value, inputNombre.value, inputTelefono.value, inputCorreo.value, inputEdad.value, inputSexo.value, inputAntecedentes.value, inputMedicamentos.value, inputAlergias.value, inputDiscapacidades.value);
+      inputNombre.value = "";
+      inputTelefono.value = "";
+      inputCorreo.value = "";
+      inputEdad.value = "";
+      inputSexo.value = "";
+      inputAntecedentes.value = "";
+      inputMedicamentos.value = "";
+      inputAlergias.value = "";
+      inputDiscapacidades.value = "";
+
+      list.value = "ninguno";
+    })
+  }
+
+
+    //Update info
+function updateInfoPaciente(id, inputNombre, inputTelefono, inputCorreo, inputEdad, inputSexo, inputAntecedentes, inputMedicamentos, inputAlergias, inputDiscapacidades){
+
+    results = document.querySelector(".results3");
+
+    let url = "/api/users/updateInfo";
+  
+    let data = {
+        user_id : id,
+        nombre : inputNombre,
+        edad : inputEdad,
+        sexo : inputSexo,
+        telefono : inputTelefono,
+        email : inputCorreo,
+        antecedentes : inputAntecedentes,
+        medicamentos : inputMedicamentos,
+        alergias : inputAlergias,
+        discapacidades : inputDiscapacidades
+    }
+  
+    let settings = {
+    method : 'PATCH',
+    headers : {
+        sessiontoken : localStorage.getItem( 'token' ),
+        'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify( data )
+    };
+  
+    fetch( url, settings )
+    .then( response => {
+        if( response.ok ){
+            return response.json();
+        }
+        throw new Error( response.statusText );
+    })
+    .then( responseJSON => {
+        let url2 = `/api/get-userby_id?_id=${id}`;
+  
+        let settings2 = {
+            method : 'GET'
+        }
+  
+        fetch( url2, settings2 )
+            .then( response => {
+                if( response.ok ){
+                    return response.json();
+                }
+                throw new Error( response.statusText );
+            })
+            .then( responseJSON => {
+                results.innerHTML = `<p class = "letras-azules">Cambios Exitosos</p>`;
+  
+            })
+            .catch( err => {
+                console.log( err.message );
+                results.innerHTML = `<p class= "letras-rojas" >Hubo un problema al realizar los cambios</p>`;
+                console.log(err);
+            });
+  
+    })
+    .catch( err => {
+        console.log( err.message );
+    });
+  }
+
 
 function init(){
   //Startup
   validateUser();
   populateProfessionalList();
+  popilatePacienteList();
   watchList();
+  watchPacienteList();
   watchEditProfesionalesBtn();
+  watchEditPacientesBtn();
 
   watchAddProfesional();
 }
