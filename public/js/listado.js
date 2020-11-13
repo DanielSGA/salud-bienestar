@@ -50,10 +50,10 @@ function validateUser(){
         });
   }
 
-  function setProfesionales( titulo ){
 
-    let profesionalesrow1 = document.querySelector("#row1");
-    let profesionalesrow2 = document.querySelector("#row2");
+function setProfesionales( titulo ){
+
+    let sectProfesionales = document.querySelector("#firstrow");
 
     let url = `/api/get-profesionalpor_titulo?titulo=${titulo}`;
 
@@ -70,41 +70,33 @@ function validateUser(){
         })
         .then( profesionales => {
 
-            profesionalesrow1.innerHTML = ''
-            profesionalesrow2.innerHTML = ''
-
-            
+            sectProfesionales.innerHTML = ''
 
             if (profesionales!= null){
                 for (k = 0; k< profesionales.length; k++) {
 
-                    if (k > 2 && k < 6)
-                    {
-                        profesionalesrow1.innerHTML += `
-                    <div class="col doc-div" style="text-align: center; padding: 0;">
-                    <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
-
-                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
-                                        <div class="esp-doctor">Dr. ${profesionales[k].nombre}</div>
-                                    </div></div>
-                                    </a>
-                                    </div>
-                    `
-                    }
-
-                    else if (k < 6)
-                    {
-                        profesionalesrow2.innerHTML += `
+                    sectProfesionales.innerHTML += `
                     
-                    <div class="col doc-div" style="text-align: center; padding: 0;">
+                    <div class="col">
                     <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
-                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
-                                        <div class="esp-doctor">Dr. ${profesionales[k].nombre}</div>
-                                    </div></div>
-                                    </a>
+                            <div class="prof-element container">
+                                <div class="row" style="padding: 0;">
+
+                                    <div class="col-4" style="padding: 6px 0 6px 0;">
+                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
                                     </div>
+                                    <div class="col-8" style="padding: 8px 0 8px 0; text-align: left;">
+                                        <div class="prof-name">Dr. ${profesionales[k].nombre}</div>
+                                        <div class="prof-spec">${profesionales[k].titulo}</div>
+                                        <div class="prof-info">Especialista en ${profesionales[k].especialidades}</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            </a>
+
+                        </div>
                     `
-                    }
                 }
             }
 
@@ -113,8 +105,7 @@ function validateUser(){
         })
         .catch( err => {
             console.log( err.message );
-            profesionalesrow1.innerHTML = ''
-            profesionalesrow2.innerHTML = ''
+            sectProfesionales.innerHTML = ''
         });
 
 
@@ -122,27 +113,27 @@ function validateUser(){
 
 function navigationBarEvent(){
     let navigationElements = document.getElementsByClassName("sect")
-    
 
     for (let i = 0; i < navigationElements.length; i++){
         navigationElements[i].addEventListener("click", (event) => {
 
             //Esconde la que está desplegada actualmente.
-            let selectedSection = document.querySelector(".actual2");
-            selectedSection.classList.remove("actual2");
-            //selectedSection.classList.remove("text-actual");
+            let selectedSection = document.querySelector(".actual");
+            selectedSection.classList.remove("actual");
+            selectedSection.classList.remove("text-actual");
 
 
             //event.target se usa para targetear al elemento al que se le hizo click.
             let currentElement = event.target.id;
 
             
+            console.log(currentElement)
             
             //También podría ser ("." + currentElement + "Section")
             let elementToShow = document.querySelector("#" + currentElement);
             //Mostrar al que se le hizo click
-            elementToShow.classList.add("actual2");
-            //elementToShow.classList.add("text-actual");
+            elementToShow.classList.add("actual");
+            elementToShow.classList.add("text-actual");
 
             if (currentElement == "MedicoGeneral"){
                 currentElement = "Medico General"
