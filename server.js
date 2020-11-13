@@ -15,6 +15,7 @@ app.use( express.static( "public" ) );
 const { Users } = require('./models/user');
 const { Profesionales } = require('./models/profesional');
 const { Admins } = require('./models/admin');
+const { Articles } = require('./models/article');
 const { DATABASE_URL, PORT, SECRET_TOKEN } = require( './config' );
 
 app.use(bodyParser.json()); //converts the data to JSON format
@@ -605,9 +606,106 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
 })
 
 
+//                                     ARTICULOS
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
+// Crear nuevo articulo
+app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
+    let {title, summary, text, category} = req.body;
 
+    if(!title || !summary || !text || !category){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+    
+        let newArticle = {
+            title : title,
+            summary : summary, 
+            text : text,
+            category : category
+        };
 
+        Articles
+            .createArticle( newArticle )
+            .then( result => {
+                return res.status( 201 ).json( result ); 
+            })
+            .catch( err => {
+                res.statusMessage = err.message;
+                return res.status( 400 ).end();
+            })
+
+        .catch( err => {
+            res.statusMessage = err.message;
+            return res.status( 400 ).end();
+        });
+});
+
+//Get articulos por categoria
+app.get( '/api/get-articulopor_categoria', jsonParser, ( req, res ) => {
+
+    let categoria = req.query.categoria;
+
+    if( !categoria){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Articles
+        .getArticleByCategory( categoria )
+        .then( result => {
+
+            console.log(result)
+            if (result.length == 0){
+                res.statusMessage = `No Users with the titulo = ${categoria} were found on the list.`;
+                return res.status ( 404 ).end();
+            }
+
+            //Return status text and user parsed as a json object.
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            console.log(err)
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+});
+
+//Get articulo _id
+app.get( '/api/get-articulopor_id', jsonParser, ( req, res ) => {
+
+    let id = req.query._id;
+
+    if( !id){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Articles
+        .getArticleByID( id )
+        .then( result => {
+
+            if (result.length == 0){
+                res.statusMessage = `No Articles with the id = ${id} were found on the list.`;
+                return res.status ( 404 ).end();
+            }
+
+            //Return status text and user parsed as a json object.
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            console.log(err)
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+});
+
+//                                    PORT LISTEN
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 
 app.listen(PORT,()=>{

@@ -32,9 +32,6 @@ function userSignupFetch( nombre, email, password){
         },
         body : JSON.stringify( data )
     }
-    
-
-    //let results = document.querySelector( '.signup_Results' );
 
     fetch( url, settings )
         .then( response => {

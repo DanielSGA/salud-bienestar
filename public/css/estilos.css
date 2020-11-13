@@ -708,6 +708,20 @@ input[type='checkbox'] {
 	margin-left: 32px;
 }
 
+.title-cat {
+	margin-top: 64px;
+	font-size: 24px;
+	font-weight: 700;
+	margin-left: 16px;
+}
+
+.title-cat-art {
+	margin-top: 64px;
+	font-size: 24px;
+	font-weight: 700;
+	margin-left: 16px;
+}
+
 .listado-desc {
 	margin: 24px 88px 32px 32px;
 	font-size: 14px;
@@ -716,8 +730,32 @@ input[type='checkbox'] {
 .subtitle {
 	font-size: 16px;
 	font-weight: 600;
-	margin-left: 32px;
 	margin: 0 0 32px 32px;
+}
+
+.category {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 40px 0 32px 48px;
+	color: #0374b9;
+}
+
+.subtitle-cat {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 32px 0 32px 32px;
+	color: #0374b9;
+}
+
+.summary-art {
+	margin: 0 88px 32px 48px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.art-text {
+	font-size: 16px;
+	margin: 0 88px 32px 48px;
 }
 
 .no-padding {
@@ -858,4 +896,60 @@ input[type='checkbox'] {
 .cat-img {
 	height: 64px;
 	width: 64px;
+}
+
+/* Artículos */
+
+.newUserInput{
+	width: 64%;
+	height: 33px;
+	left: 403px;
+
+	background: #FFFFFF;
+	border: 1px solid #E3E3E3;
+	box-sizing: border-box;
+	padding-left: 8px;
+}
+
+.newUserText{
+	width: 88%;
+	height: 100px;
+	left: 403px;
+
+	background: #FFFFFF;
+	border: 1px solid #E3E3E3;
+	box-sizing: border-box;
+	padding-left: 8px;
+}
+
+.margin-right {
+	margin-right: 8px;
+}
+
+.article-box {
+	background-color: white;
+	border-radius: 15px;
+	padding: 16px 24px 16px 32px;
+	box-shadow: 0 4px 11px -4px #cbcbcb;
+	width: 80%;
+	height: 100px;
+	margin: 0 0 40px 16px;
+}
+
+.button-art {
+	color: black;
+	display: inline-block;
+	height: 25px;
+	background:rgba(231, 47, 106, .77);
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	padding: 0 24px 0 24px;
+	line-height: 25px;
+	font-size: 14px;
+}
+
+.button-art:hover {
+	background: rgba(231, 47, 106);
+	color: white;
 }
