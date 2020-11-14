@@ -740,6 +740,13 @@ input[type='checkbox'] {
 	color: #0374b9;
 }
 
+.seg-subtitle {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 24px 0 32px 48px;
+	color: #0374b9;
+}
+
 .subtitle-cat {
 	font-size: 16px;
 	font-weight: 600;
