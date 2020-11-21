@@ -29,87 +29,87 @@
         <div class="columnas-pagina-nav-textArea">
             <div>
             <!-- NAVBAR -->
-                <nav class=" container-fluid color-nav text-center" id="nav">
-                    <!-- Logo-->
-                    <div>
-                      <a class="navbar-brand" href="#">
-                        <img src="../img/logo-fondoB.svg" class="circulo-logo" id="logo-nav">
-                      </a>
-                    </div>
-                    <!--End Logo-->
-                    <ul>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="" class="active texto-nav"><p>Inicio</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                               <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
-                            </div>
-                            <div>
-                                <a href="" class="texto-nav"><p>Doctores</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="" class="texto-nav"><p>Seguimiento</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="" class="texto-nav"><p>Bibliotecas</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
-                            </div>
-                                <!-- Al presionar el buscador se dezpliega esto-->
-                                <div class="overlay" id="overlay">
-                                    <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
-                                    <div class="overlay-content">
-                                        <form id="form" action="">
-                                            <input type="text" name="" placeholder="¿Qué médico busca?">
-                                            <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
-                                        </form>
-                                    </div>
+            <nav class=" container-fluid color-nav text-center" id="nav">
+                <!-- Logo-->
+                <div>
+                  <a class="navbar-brand" href="#">
+                    <img src="../img/logo-fondoB.svg" class="circulo-logo" id="logo-nav">
+                  </a>
+                </div>
+                <!--End Logo-->
+                <ul>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+                        </div>
+                        <div class>
+                            <a href="home.html" class="texto-nav"><p>Inicio</p></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                           <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
+                        </div>
+                        <div>
+                            <a href="listado.html" class="texto-nav"><span>Profesionales de la salud</span></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a href="seguimiento.html" class="texto-nav"><p>Seguimiento</p></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a href="library_main_UserView.html" class="texto-nav"><p>Bibliotecas</p></a>
+                        </div>
+                    </li>
+                    <!--
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
+                        </div>
+                             Al presionar el buscador se dezpliega esto
+                            <div class="overlay" id="overlay">
+                                <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
+                                <div class="overlay-content">
+                                    <form id="form" action="">
+                                        <input type="text" name="" placeholder="¿Qué médico busca?">
+                                        <a type="submit" onclick=""><i class="fa boton fa-2x overlay-fa fa-search "></i></a>
+                                    </form>
                                 </div>
-                                <!-- End del buscador-->
+                            </div>
+                             End del buscador
+                    </li>-->
+                </ul>
 
-                        </li>
-                    </ul>
 
-
-                  
+              
+                <!--Avatar -->
+                <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-top: 200px;">
+                    <li class="nav-item avatar columnas-avatar-nav" style= "justify-content: center;">
+                        <div>
+                            <a class="nav-link p-0" href="#" id="avatar-nav">
+                                <img src="../img/usuario.png" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                            </a>
+                        </div>
+                        <div class="texto-nav">
+                            <a href="perfil.html" id="nombreUsuario" class= "texto-nav"></a>
+                        </div>
+                    </li>
+                </ul>
                     <!--Avatar -->
-                    <ul class="navbar-nav ml-auto nav-flex-icons">
-                        <li class="nav-item avatar columnas-avatar-nav">
-                            <div>
-                                <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
-                                </a>
-                            </div>
-                            <div class="texto-nav">
-                                <a href="" id="nombreUsuario"></a>
-                            </div>
-                        </li>
-                    </ul>
-                        <!--Avatar -->
-                </nav>
-        <!-- END NAVBAR-->
+            </nav>
+    <!-- END NAVBAR-->
             </div>
 
         <!-- Todo el contenido de la pagina va aqui-->
@@ -121,7 +121,7 @@
                         <li class="nav-item avatar columnas-avatar-title">
                             <div>
                                 <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="100">
+                                    <img src="../img/usuario_Grande.png" class="rounded-circle z-depth-0" alt="avatar image" height="100">
                                 </a>
                             </div>
                             <div class="margin-left">

@@ -38,6 +38,7 @@ function validateUser(){
                 .then( userJSON => {
   
                     setProfesionales( "Medico General");
+                    setNavNombre(userJSON.nombre);
                     
                 })
                 .catch( err => {
@@ -48,6 +49,13 @@ function validateUser(){
             console.log( err.message );
             window.location.href = "../index.html";
         });
+  }
+
+  function setNavNombre( nombreUsuario)
+  {
+      let nombre1 = document.querySelector("#nombreUsuario");
+
+      nombre1.innerHTML = nombreUsuario;
   }
 
 
@@ -77,9 +85,10 @@ function setProfesionales( titulo ){
 
                     sectProfesionales.innerHTML += `
                     
-                    <div class="col">
-                    <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
+                    <div class="col-3">
                             <div class="prof-element container">
+                            <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
+
                                 <div class="row" style="padding: 0;">
 
                                     <div class="col-4" style="padding: 6px 0 6px 0;">
@@ -92,8 +101,9 @@ function setProfesionales( titulo ){
                                     </div>
 
                                 </div>
+                                </a>
+
                             </div>
-                            </a>
 
                         </div>
                     `

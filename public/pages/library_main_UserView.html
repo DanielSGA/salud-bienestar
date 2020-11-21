@@ -15,13 +15,13 @@
 <body class=" color-nav">
     <div class="columnas-pagina-nav-textArea">
         <div>
-        <!-- NAVBAR -->
+            <!-- NAVBAR -->
             <nav class=" container-fluid color-nav text-center" id="nav">
                 <!-- Logo-->
                 <div>
-                    <a class="navbar-brand" href="#">
+                  <a class="navbar-brand" href="#">
                     <img src="../img/logo-fondoB.svg" class="circulo-logo" id="logo-nav">
-                    </a>
+                  </a>
                 </div>
                 <!--End Logo-->
                 <ul>
@@ -29,13 +29,13 @@
                         <div>
                             <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
                         </div>
-                        <div>
-                            <a href="home.html" class="active texto-nav"><p>Inicio</p></a>
+                        <div class>
+                            <a href="home.html" class="texto-nav"><p>Inicio</p></a>
                         </div>
                     </li>
                     <li class="columnas-display-grid">
                         <div>
-                            <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
+                           <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
                         </div>
                         <div>
                             <a href="listado.html" class="texto-nav"><span>Profesionales de la salud</span></a>
@@ -46,7 +46,7 @@
                             <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                         </div>
                         <div>
-                            <a href="" class="texto-nav"><p>Seguimiento</p></a>
+                            <a href="seguimiento.html" class="texto-nav"><p>Seguimiento</p></a>
                         </div>
                     </li>
                     <li class="columnas-display-grid">
@@ -54,9 +54,10 @@
                             <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
                         </div>
                         <div>
-                            <a href="library_main.html" class="texto-nav"><p>Bibliotecas</p></a>
+                            <a href="library_main_UserView.html" class="texto-nav"><p>Bibliotecas</p></a>
                         </div>
                     </li>
+                    <!--
                     <li class="columnas-display-grid">
                         <div>
                             <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
@@ -64,7 +65,7 @@
                         <div>
                             <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
                         </div>
-                            <!-- Al presionar el buscador se dezpliega esto-->
+                             Al presionar el buscador se dezpliega esto
                             <div class="overlay" id="overlay">
                                 <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
                                 <div class="overlay-content">
@@ -74,29 +75,28 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- End del buscador-->
-
-                    </li>
+                             End del buscador
+                    </li>-->
                 </ul>
 
 
-                
+              
                 <!--Avatar -->
                 <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-top: 200px;">
-                    <li class="nav-item avatar columnas-avatar-nav">
+                    <li class="nav-item avatar columnas-avatar-nav" style= "justify-content: center;">
                         <div>
                             <a class="nav-link p-0" href="#" id="avatar-nav">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                                <img src="../img/usuario.png" class="rounded-circle z-depth-0" alt="avatar image" height="30">
                             </a>
                         </div>
                         <div class="texto-nav">
-                            <a href="perfil.html" id="nombreUsuario">Daniel Saldaña</a>
+                            <a href="perfil.html" id="nombreUsuario" class= "texto-nav"></a>
                         </div>
                     </li>
                 </ul>
                     <!--Avatar -->
             </nav>
-            <!-- END NAVBAR-->
+    <!-- END NAVBAR-->
         </div>
 
         <!-- Todo el contenido de la pagina va aqui-->
@@ -114,9 +114,10 @@
                     <div class="col-8">
                         <div class="listado-desc redheader-agenda">Selecciona una categoría para leer los artículos informativos disponibles.</div>
                     </div>
+                    <!--
                     <div class="col-4" style="padding-left: 20px; padding: 20px 20px 0 20px;">
                         <a href="articulo_form.html" class="button-art">Agregar artículo</a>
-                    </div>
+                    </div>-->
                 </div>
                 <!--Subtítulo-->
                 <div class="row">
@@ -252,5 +253,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- JavaScript -->
     <script src="../js/scripts.js"></script>
+    <script src="../js/listado.js"></script>
+
 </body>
 </html>

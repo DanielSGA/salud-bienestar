@@ -1,3 +1,5 @@
+
+
 function setArticulos( categoria ){
 
     let sectArticulos = document.querySelector("#firstrow");

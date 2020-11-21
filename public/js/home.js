@@ -38,6 +38,7 @@ function validateUser(){
                 .then( userJSON => {
   
                     setProfesionales( "Medico General");
+                    setNombres(userJSON.nombre);
                     
                 })
                 .catch( err => {
@@ -49,6 +50,17 @@ function validateUser(){
             window.location.href = "../index.html";
         });
   }
+
+  function setNombres( nombreUsuario)
+  {
+      let nombre1 = document.querySelector("#nombreUsuario");
+      let nombre2 = document.querySelector("#nombreUsuario2");
+
+      nombre1.innerHTML = nombreUsuario;
+      nombre2.innerHTML = `Bienvenido, ${nombreUsuario}`;
+
+  }
+
 
   function setProfesionales( titulo ){
 
