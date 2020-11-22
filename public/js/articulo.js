@@ -63,8 +63,7 @@ function setArticulos( idArticle ){
                         </div>
                     </div>
                     <!--Video-->
-                    <iframe width="420" height="345" src="${articles[k].video}">
-                    </iframe>
+                    <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-left: 48px;"></iframe>
                     `
                     }
                     if(articles[k].category === "Psicología"){
@@ -129,7 +128,7 @@ function setArticulos( idArticle ){
                             </div>
                         </div>
                         <!--Video-->
-                        <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-left: 40px;"></iframe>
+                        <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-left: 80px;"></iframe>
                         </iframe>
                         `
                     }
