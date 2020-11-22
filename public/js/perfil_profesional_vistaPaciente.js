@@ -48,7 +48,7 @@ function validateUser(){
 
 
                   setProfile(processUser());
-                  
+                  setNombres(userJSON.nombre);
               })
               .catch( err => {
                   console.log( err.message );
@@ -58,6 +58,15 @@ function validateUser(){
           console.log( err.message );
           window.location.href = "../index.html";
       });
+}
+
+
+function setNombres( nombreUsuario)
+{
+    let nombre1 = document.querySelector("#nombreUsuario");
+
+    nombre1.innerHTML = nombreUsuario;
+
 }
 
 function processUser()

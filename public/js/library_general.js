@@ -1,3 +1,62 @@
+var currentUserId = ";"
+
+
+//Startup
+function validateUser(){
+  let url = "/api/validate-user";
+  let settings = {
+      method : 'GET',
+      headers : {
+          sessiontoken : localStorage.getItem( 'token' )
+      }
+  };
+
+  fetch( url, settings )
+      .then( response => {
+          if( response.ok ){
+              return response.json();
+          }
+
+          throw new Error( response.statusText );
+      })
+      .then( responseJSON => {
+          currentUserId = responseJSON._id;
+          let url = `/api/get-userby_id?_id=${currentUserId}`;
+
+          let settings = {
+              method : 'GET'
+          }
+
+          fetch( url, settings )
+              .then( response => {
+                  if( response.ok ){
+                      return response.json();
+                  }
+                  throw new Error( response.statusText );
+              })
+              .then( userJSON => {
+
+                  setNombres(userJSON.nombre);
+              })
+              .catch( err => {
+                  console.log( err.message );
+              });
+      })
+      .catch( err => {
+          console.log( err.message );
+          window.location.href = "../index.html";
+      });
+}
+
+
+function setNombres( nombreUsuario)
+{
+    let nombre1 = document.querySelector("#nombreUsuario");
+
+    nombre1.innerHTML = nombreUsuario;
+
+}
+
 
 
 function setArticulos( categoria ){
@@ -52,6 +111,9 @@ function setArticulos( categoria ){
 }
 
 function init(){
+
+    validateUser();
+
     //Startup
     let temp1 = document.querySelector("#general");
     let temp2 = document.querySelector("#psi");

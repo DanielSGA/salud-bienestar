@@ -92,7 +92,7 @@ function setProfesionales( titulo ){
                                 <div class="row" style="padding: 0;">
 
                                     <div class="col-4" style="padding: 6px 0 6px 0;">
-                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
+                                        <img src="../img/medico.png" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
                                     </div>
                                     <div class="col-8" style="padding: 8px 0 8px 0; text-align: left;">
                                         <div class="prof-name">Dr. ${profesionales[k].nombre}</div>
