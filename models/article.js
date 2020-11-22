@@ -22,6 +22,11 @@ const articleSchema = mongoose.Schema({
 
     category: {
         type: String
+    },
+
+    video: {
+        type: String,
+        required: true
     }
 });
 

@@ -26,7 +26,7 @@ function setArticulos( categoria ){
 
                     sectArticulos.innerHTML += `
                     
-                    <div class="col">
+                    <div class="col-12">
                             <div class="article-box">
                                 <a href="articulo.html?id=${articles[k]._id}" class="a2">
                                     <div class="prof-name" style="margin-bottom: 8px;">${articles[k].title}</div>

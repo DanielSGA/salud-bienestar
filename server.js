@@ -612,7 +612,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
 
 // Crear nuevo articulo
 app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
-    let {title, summary, text, category} = req.body;
+    let {title, summary, text, category, video} = req.body;
 
     if(!title || !summary || !text || !category){
         res.statusMessage = "Parameter missing in the body of the request.";
@@ -623,7 +623,8 @@ app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
             title : title,
             summary : summary, 
             text : text,
-            category : category
+            category : category,
+            video: video
         };
 
         Articles

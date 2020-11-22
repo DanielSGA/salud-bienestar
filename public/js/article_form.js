@@ -11,7 +11,7 @@ function closeSearch(){
 // Fin de Buscador
 
 //Post article
-function postArticle(inputTitulo, inputSummary, inputTexto, inputCategory){
+function postArticle(inputTitulo, inputSummary, inputTexto, inputCategory, inputVideo){
     console.log("El que mandas:")
     console.log(inputCategory)
     let url = "/api/articles/createArticle";
@@ -20,7 +20,8 @@ function postArticle(inputTitulo, inputSummary, inputTexto, inputCategory){
         title : inputTitulo,
         summary : inputSummary,
         text : inputTexto,
-        category : inputCategory
+        category : inputCategory,
+        video: inputVideo
     }
   
     let settings = {
@@ -54,6 +55,7 @@ let sendBtn = document.querySelector( '.sendBtn' );
 let inputTitulo = document.querySelector("#input_title");
 let inputSummary = document.querySelector("#input_summary");
 let inputTexto = document.querySelector("#input_text");
+let inputVideo = document.querySelector("#input_video");
 
 sendBtn.addEventListener( 'click' , ( event ) => {
 
@@ -67,7 +69,7 @@ sendBtn.addEventListener( 'click' , ( event ) => {
         }
     });
 
-    postArticle(inputTitulo.value, inputSummary.value, inputTexto.value, inputCategory)
+    postArticle(inputTitulo.value, inputSummary.value, inputTexto.value, inputCategory, inputVideo.value)
 })
 }
 
