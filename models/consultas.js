@@ -8,6 +8,10 @@ const consultaSchema = mongoose.Schema({
         required : true
     }],
 
+    peso : {
+        type: String,
+    },
+
     fecha: {
         type: Date,
         required : true
@@ -63,7 +67,7 @@ const Consultas = {
                 }); 
     },
     getConsultaByUserId: function( _id ){
-        return profesionalModel
+        return consultaModel
                 .find( { paciente : _id } )
                 .then( consulta => {
                     return consulta;
