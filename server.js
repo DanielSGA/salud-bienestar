@@ -527,9 +527,9 @@ app.get( '/api/get-profesionalpor_titulo', jsonParser, ( req, res ) => {
 });
 
 app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
-    let {nombre, email, password} = req.body;
+    let {nombre, email, password, calendario} = req.body;
 
-    if(!nombre || !email || !password){
+    if(!nombre || !email || !password || !calendario){
         res.statusMessage = "Parameter missing in the body of the request.";
         return res.status( 406 ).end();
     }
@@ -539,7 +539,8 @@ app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
             let newProfesional = {
                 nombre : nombre,
                 password : hashedPassword, 
-                email
+                email : email,
+                calendario : calendario
             };
 
             Profesionales
@@ -557,6 +558,41 @@ app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
             return res.status( 400 ).end();
         });
 });
+
+//Signup con calendario para el admin
+app.post( '/api/profesionales/signupCalendario', jsonParser, ( req, res ) => {
+    let {nombre, email, password, calendario} = req.body;
+
+    if(!nombre || !email || !password || !calendario){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+    
+    bcrypt.hash( password, 10 )
+        .then( hashedPassword => {
+            let newProfesional = {
+                nombre : nombre,
+                password : hashedPassword, 
+                email : email,
+                calendario : calendario
+            };
+
+            Profesionales
+                .crearProfesional( newProfesional )
+                .then( result => {
+                    return res.status( 201 ).json( result ); 
+                })
+                .catch( err => {
+                    res.statusMessage = err.message;
+                    return res.status( 400 ).end();
+                });
+        })
+        .catch( err => {
+            res.statusMessage = err.message;
+            return res.status( 400 ).end();
+        });
+});
+
 
 app.post( '/api/profesionales/signupcontitulo', jsonParser, ( req, res ) => {
     let {nombre, email, password, titulo} = req.body;
@@ -651,7 +687,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
             return res.status( 400 ).end();
         }
 
-        let { profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo} = req.body;
+        let { profesional_id, nombre, telefono, email, certificaciones, especialidades, calendario, titulo} = req.body;
 
         if( !profesional_id ){
             res.statusMessage = "Parameter missing in the body of the request.";
@@ -668,7 +704,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
             }
 
             Profesionales
-                .updateProfesionalInfo( profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo)
+                .updateProfesionalInfo( profesional_id, nombre, telefono, email, certificaciones, especialidades, calendario, titulo)
                 .then( result => {
 
                     if ( result.n == 0 ){

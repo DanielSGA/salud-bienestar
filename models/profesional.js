@@ -34,6 +34,10 @@ const profesionalSchema = mongoose.Schema({
 
     titulo: {
         type: String
+    },
+
+    calendario: {
+        type: String
     }
 });
 
@@ -90,11 +94,11 @@ const Profesionales = {
                     throw new Error( err.message );
                 });
     },
-    updateProfesionalInfo : function( profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo){
+    updateProfesionalInfo : function( profesional_id, nombre, telefono, email, certificaciones, especialidades, calendario, titulo){
         return profesionalModel
                 .updateOne({ _id: profesional_id },{ $set : { nombre : nombre,
                      telefono : telefono, email : email, certificaciones : certificaciones,
-                      especialidades : especialidades, titulo : titulo}})
+                      especialidades : especialidades, calendario : calendario, titulo : titulo}})
                 .then( userUpdated => {
                     return userUpdated;
                 })

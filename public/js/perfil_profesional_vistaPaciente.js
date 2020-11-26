@@ -90,6 +90,8 @@ function setProfile( idProfesional ){
   let infoCorreo = document.querySelector("#info_correo");
   let infoCertificaciones = document.querySelector("#info_certificaciones");
   let infoEspecialidades = document.querySelector("#info_especialidades");
+  let btnCita = document.querySelector("#btnCita");
+
 
   let infoTitulo = document.querySelector("#info_titulo");
 
@@ -153,6 +155,11 @@ function setProfile( idProfesional ){
           }
           else{
             infoTitulo.innerHTML = ``;
+          }
+
+          if (userInfo.calendario != null){
+            btnCita.innerHTML += `<button type="button" class = "line-height boton-perfil-diseño margin-sides historialBtn" onclick="Calendly.initPopupWidget({url: '${userInfo.calendario}'});return false;">
+            Agendar Cita</button>`;
           }
           
       })
