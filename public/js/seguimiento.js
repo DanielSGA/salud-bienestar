@@ -72,9 +72,51 @@ function validateUser(){
         });
 }
 
+function fetchProfesionalName( profID)
+ {
+     //Get info by user id
+  let url = `/api/get-profesionalpor_id?_id=${profID}`;
+  let settings = {
+      method : 'GET'
+  }
+  fetch( url, settings )
+      .then( response => {
+          if( response.ok ){
+              return response.json();
+          }
+          throw new Error( response.statusText );
+      })
+      .then( userInfo => {
+          return userInfo
+      })
+      .catch( err => {
+          console.log( err.message );
+      });
+ }
+  
 
  function setConsultas( consultas)
  {
+     consultas.reverse();
+     
+    let peso0 = document.querySelector("#peso0");
+    let imc0 = document.querySelector("#imc0");
+    let grasa0 = document.querySelector("#grasa0");
+    let musc0 = document.querySelector("#musc0");
+    let gv0 = document.querySelector("#gv0");
+    let em0 = document.querySelector("#em0");
+    let prof0 = document.querySelector("#prof0");
+
+
+    last = consultas.length-1
+
+    peso0.innerHTML = consultas[last].peso
+    imc0.innerHTML = consultas[last].masaCorporal
+    grasa0.innerHTML = consultas[last].grasa
+    musc0.innerHTML = consultas[last].musculo
+    gv0.innerHTML = consultas[last].grasaVisceral
+    em0.innerHTML = consultas[last].edadMetabolica
+    prof0.innterText = fetchProfesionalName(consultas[0].profesional)
 
     let peso1 = document.querySelector("#peso1");
     let imc1 = document.querySelector("#imc1");
@@ -90,7 +132,10 @@ function validateUser(){
     musc1.innerHTML = consultas[0].musculo
     gv1.innerHTML = consultas[0].grasaVisceral
     em1.innerHTML = consultas[0].edadMetabolica
-    prof1.innerHTML = consultas[0].profesional
+    prof1.innterText = fetchProfesionalName(consultas[0].profesional)
+    
+
+    ////////////////////////////////////////////////////
 
     let peso2 = document.querySelector("#peso2");
     let imc2 = document.querySelector("#imc2");
@@ -106,7 +151,8 @@ function validateUser(){
     musc2.innerHTML = consultas[1].musculo
     gv2.innerHTML = consultas[1].grasaVisceral
     em2.innerHTML = consultas[1].edadMetabolica
-    prof2.innerHTML = consultas[1].profesional
+    prof2.innerHTML = fetchProfesionalName(consultas[1].profesional)
+    ////////////////////////////////////////////////////
 
     let peso3 = document.querySelector("#peso3");
     let imc3 = document.querySelector("#imc3");
@@ -114,7 +160,7 @@ function validateUser(){
     let musc3 = document.querySelector("#musc3");
     let gv3 = document.querySelector("#gv3");
     let em3 = document.querySelector("#em3");
-    let prof3 = document.querySelector("#prof23");
+    let prof3 = document.querySelector("#prof3");
     
     peso3.innerHTML = consultas[2].peso
     imc3.innerHTML = consultas[2].masaCorporal
@@ -122,11 +168,65 @@ function validateUser(){
     musc3.innerHTML = consultas[2].musculo
     gv3.innerHTML = consultas[2].grasaVisceral
     em3.innerHTML = consultas[2].edadMetabolica
-    prof3.innerHTML = consultas[2].profesional
+    prof3.innerHTML = fetchProfesionalName(consultas[2].profesional)
 
+    ////////////////////////////////////////////////////
+
+    let peso4 = document.querySelector("#peso4");
+    let imc4 = document.querySelector("#imc4");
+    let grasa4 = document.querySelector("#grasa4");
+    let musc4 = document.querySelector("#musc4");
+    let gv4 = document.querySelector("#gv4");
+    let em4 = document.querySelector("#em4");
+    let prof4 = document.querySelector("#prof4");
+    
+    peso4.innerHTML = consultas[3].peso
+    imc4.innerHTML = consultas[3].masaCorporal
+    grasa4.innerHTML = consultas[3].grasa
+    musc4.innerHTML = consultas[3].musculo
+    gv4.innerHTML = consultas[3].grasaVisceral
+    em4.innerHTML = consultas[3].edadMetabolica
+    prof4.innerHTML = fetchProfesionalName(consultas[3].profesional)
+
+    ////////////////////////////////////////////////////
+
+    let peso5 = document.querySelector("#peso5");
+    let imc5 = document.querySelector("#imc5");
+    let grasa5 = document.querySelector("#grasa5");
+    let musc5 = document.querySelector("#musc5");
+    let gv5 = document.querySelector("#gv5");
+    let em5 = document.querySelector("#em5");
+    let prof5 = document.querySelector("#prof5");
+    
+    peso5.innerHTML = consultas[4].peso
+    imc5.innerHTML = consultas[4].masaCorporal
+    grasa5.innerHTML = consultas[4].grasa
+    musc5.innerHTML = consultas[4].musculo
+    gv5.innerHTML = consultas[4].grasaVisceral
+    em5.innerHTML = consultas[4].edadMetabolica
+    prof5.innerHTML = fetchProfesionalName(consultas[4].profesional)
+
+    ////////////////////////////////////////////////////
+
+    let peso6 = document.querySelector("#peso6");
+    let imc6 = document.querySelector("#imc6");
+    let grasa6 = document.querySelector("#grasa6");
+    let musc6 = document.querySelector("#musc6");
+    let gv6 = document.querySelector("#gv6");
+    let em6 = document.querySelector("#em6");
+    let prof6 = document.querySelector("#prof6");
+    
+    peso6.innerHTML = consultas[5].peso
+    imc6.innerHTML = consultas[5].masaCorporal
+    grasa6.innerHTML = consultas[5].grasa
+    musc6.innerHTML = consultas[5].musculo
+    gv6.innerHTML = consultas[5].grasaVisceral
+    em6.innerHTML = consultas[5].edadMetabolica
+    prof6.innerHTML = fetchProfesionalName(consultas[5].profesional)
  }
 
-  
+
+ 
   function init(){
     //Startup
     validateUser();

@@ -231,6 +231,7 @@ app.patch( '/api/users/updateInfo', jsonParser, ( req, res ) =>{
 app.post( '/api/create-consulta', jsonParser, ( req, res ) => {
 
     paciente = req.body.paciente
+    peso = req.body.peso
     fecha = req.body.fecha
     masaCorporal = req.body.masaCorporal
     grasa = req.body.grasa
@@ -247,7 +248,7 @@ app.post( '/api/create-consulta', jsonParser, ( req, res ) => {
 
 
         // Validations go here
-        if (!paciente || !masaCorporal || !grasa || !musculo || !grasaVisceral || !edadMetabolica || !profesional) {
+        if (!paciente ||!peso || !masaCorporal || !grasa || !musculo || !grasaVisceral || !edadMetabolica || !profesional) {
             res.statusMessage = "Parameter missing in the body of the request.";
             return res.status(406).end();
         }
@@ -264,6 +265,7 @@ app.post( '/api/create-consulta', jsonParser, ( req, res ) => {
 
                 const newConsulta = {
                     paciente,
+                    peso,
                     fecha,
                     masaCorporal,
                     grasa,
