@@ -38,6 +38,7 @@ function validateUser(){
                 .then( userJSON => {
   
                     setProfesionales( "Medico General");
+                    setNombres(userJSON.nombre);
                     
                 })
                 .catch( err => {
@@ -49,6 +50,17 @@ function validateUser(){
             window.location.href = "../index.html";
         });
   }
+
+  function setNombres( nombreUsuario)
+  {
+      let nombre1 = document.querySelector("#nombreUsuario");
+      let nombre2 = document.querySelector("#nombreUsuario2");
+
+      nombre1.innerHTML = nombreUsuario;
+      nombre2.innerHTML = `Bienvenido, ${nombreUsuario}`;
+
+  }
+
 
   function setProfesionales( titulo ){
 
@@ -84,7 +96,7 @@ function validateUser(){
                     <div class="col doc-div" style="text-align: center; padding: 0;">
                     <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
 
-                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <button class="doc-button"><img src="../img/medico.png" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
                                         <div class="esp-doctor">Dr. ${profesionales[k].nombre}</div>
                                     </div></div>
                                     </a>
@@ -98,7 +110,7 @@ function validateUser(){
                     
                     <div class="col doc-div" style="text-align: center; padding: 0;">
                     <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
-                                        <button class="doc-button"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
+                                        <button class="doc-button"><img src="../img/medico.png" class="rounded-circle z-depth-0" alt="avatar image" height="45"></button>
                                         <div class="esp-doctor">Dr. ${profesionales[k].nombre}</div>
                                     </div></div>
                                     </a>

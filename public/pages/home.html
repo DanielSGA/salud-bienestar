@@ -58,7 +58,7 @@
                                 <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a href="" class="texto-nav"><p>Seguimiento</p></a>
+                                <a href="seguimiento.html" class="texto-nav"><p>Seguimiento</p></a>
                             </div>
                         </li>
                         <li class="columnas-display-grid">
@@ -66,9 +66,10 @@
                                 <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a href="" class="texto-nav"><p>Bibliotecas</p></a>
+                                <a href="library_main_UserView.html" class="texto-nav"><p>Bibliotecas</p></a>
                             </div>
                         </li>
+                        <!--
                         <li class="columnas-display-grid">
                             <div>
                                 <a><i class="fa fa-search" onclick="openSearch()" aria-hidden="true"></i></a>
@@ -76,7 +77,7 @@
                             <div>
                                 <a class="texto-nav" onclick="openSearch()"><p>Buscador</p></a>
                             </div>
-                                <!-- Al presionar el buscador se dezpliega esto-->
+                                 Al presionar el buscador se dezpliega esto
                                 <div class="overlay" id="overlay">
                                     <button onclick="closeSearch()" class="cerrarBusqueda">X</button>
                                     <div class="overlay-content">
@@ -86,23 +87,22 @@
                                         </form>
                                     </div>
                                 </div>
-                                <!-- End del buscador-->
-
-                        </li>
+                                 End del buscador
+                        </li>-->
                     </ul>
 
 
                   
                     <!--Avatar -->
                     <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-top: 200px;">
-                        <li class="nav-item avatar columnas-avatar-nav">
+                        <li class="nav-item avatar columnas-avatar-nav" style= "justify-content: center;">
                             <div>
                                 <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                                    <img src="../img/usuario.png" class="rounded-circle z-depth-0" alt="avatar image" height="30">
                                 </a>
                             </div>
                             <div class="texto-nav">
-                                <a href="perfil.html" id="nombreUsuario">Daniel Saldaña</a>
+                                <a href="perfil.html" id="nombreUsuario" class= "texto-nav"></a>
                             </div>
                         </li>
                     </ul>
@@ -115,7 +115,7 @@
             <div id="text-area" class="padding1em">
                 <div class="container-fluid">
                     <!-- Fila de arriba -->
-                    <div class="marginTop2em">Bienvenido, Daniel</div>
+                    <div class="marginTop2em" id="nombreUsuario2"></div>
 
                     <div class="redheader-agenda">Agenda una consulta</div>
 
@@ -123,7 +123,7 @@
                         <div class="row">
                             <div class="col-4 section">
                                 <div class="section-header">1. Selecciona la especialidad</div>
-                                <div class="row" style="margin-top: 24px; margin-left: -8px;">
+                                <div class="row" style="margin-top: 24px; margin-left: 27px;">
                                     <div class="col">
                                         <button class="sect esp-button-blue actual2" id = 'MedicoGeneral'><img class="button-icon no-click" src="../img/general.png" alt=""></button>
                                         <div class="esp-doctor" style="position: absolute; margin-left: -10px;">Médico general</div>
@@ -137,7 +137,7 @@
                                         <div class="esp-doctor" style="margin-left: 6px;">Nutriólogo</div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: 24px; margin-left: -8px;">
+                                <div class="row" style="margin-top: 24px; margin-left: 27px;">
                                     <div class="col">
                                         <button class="sect esp-button-blue" id = 'Ginecologo'><img class="button-icon no-click" src="../img/gine.png" alt=""></button>
                                         <div class="esp-doctor">Ginecólogo</div>
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                             <div class="col-7 section-doc">
-                                <div>
+                                <div style= "display: flex; justify-content: space-between;">
                                     <span class="section-header">2. Selecciona a un profesional de la salud</span>
                                     <a href="" class="viewmore-link">Ver más doctores</a>
                                 </div>
@@ -232,6 +232,18 @@
                             </div>
                             <div class="col-6 section2">
                                 <div class="redheader-sec2">Últimas publicaciones</div>
+                                <div class=" marginTop1em">
+                                    <div class="padding1em line-heigh">
+                                        <p class="bold">Medidas de prevención contra el COVID-19</p>
+                                        <p>Aprende a cuidarte contra el coronavirus</p>
+                                    </div>
+                                </div>
+                                <div class=" marginTop1em">
+                                    <div class="padding1em line-heigh">
+                                        <p class="bold">Síntomas de la colitis</p>
+                                        <p>Aprende a identificar los síntomas más comunes de la colitis</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

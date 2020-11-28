@@ -15,6 +15,7 @@ app.use( express.static( "public" ) );
 const { Users } = require('./models/user');
 const { Profesionales } = require('./models/profesional');
 const { Admins } = require('./models/admin');
+const { Consultas } = require('./models/consultas');
 const { Articles } = require('./models/article');
 const { DATABASE_URL, PORT, SECRET_TOKEN } = require( './config' );
 
@@ -222,6 +223,98 @@ app.patch( '/api/users/updateInfo', jsonParser, ( req, res ) =>{
         });
     });
 })
+
+//                                      CONSULTAS
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+//Create consulta endpoint
+app.post( '/api/create-consulta', jsonParser, ( req, res ) => {
+
+    paciente = req.body.paciente
+    peso = req.body.peso
+    fecha = req.body.fecha
+    masaCorporal = req.body.masaCorporal
+    grasa = req.body.grasa
+    musculo = req.body.musculo
+    grasaVisceral = req.body.grasaVisceral
+    edadMetabolica = req.body.edadMetabolica
+    profesional = req.body.profesional
+    
+
+
+
+        // Continue with the posting of the consulta
+
+
+
+        // Validations go here
+        if (!paciente ||!peso || !masaCorporal || !grasa || !musculo || !grasaVisceral || !edadMetabolica || !profesional) {
+            res.statusMessage = "Parameter missing in the body of the request.";
+            return res.status(406).end();
+        }
+
+
+        Users
+            .getUserByID(paciente)
+            .then(user => {
+
+                if (!user) {
+                    res.statusMessage = `No Users with the email = ${decoded.email} were found on the list.`;
+                    return res.status(404).end();
+                }
+
+                const newConsulta = {
+                    paciente,
+                    peso,
+                    fecha,
+                    masaCorporal,
+                    grasa,
+                    musculo,
+                    grasaVisceral,
+                    edadMetabolica,
+                    profesional
+                }
+
+                Consultas
+                    .creaConsulta(newConsulta)
+                    .then(consulta => {
+                        return res.status(201).json(consulta);
+                    })
+                    .catch(err => {
+                        res.statusMessage = err.message;
+                        return res.status(400).end();
+                    });
+            })
+            .catch(err => {
+                res.statusMessage = err.message;
+                return res.status(400).end();
+            });
+})
+
+//Get consultas by user id
+app.get( '/api/get-consultasbyid', jsonParser, ( req, res ) => {
+
+    let _id = req.query._id;
+
+    if( !_id){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+
+    Consultas
+        .getConsultaByUserId( _id )
+        .then( result => {
+            //Return status text and user parsed as a json object.
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            (console.log(err))
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            //500 es el típico para cuando el server está abajo.
+            return res.status( 500 ).end();
+        });
+});
+
 
 //                                      ADMINS
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,9 +529,9 @@ app.get( '/api/get-profesionalpor_titulo', jsonParser, ( req, res ) => {
 });
 
 app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
-    let {nombre, email, password} = req.body;
+    let {nombre, email, password, calendario} = req.body;
 
-    if(!nombre || !email || !password){
+    if(!nombre || !email || !password || !calendario){
         res.statusMessage = "Parameter missing in the body of the request.";
         return res.status( 406 ).end();
     }
@@ -448,7 +541,8 @@ app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
             let newProfesional = {
                 nombre : nombre,
                 password : hashedPassword, 
-                email
+                email : email,
+                calendario : calendario
             };
 
             Profesionales
@@ -466,6 +560,41 @@ app.post( '/api/profesionales/signup', jsonParser, ( req, res ) => {
             return res.status( 400 ).end();
         });
 });
+
+//Signup con calendario para el admin
+app.post( '/api/profesionales/signupCalendario', jsonParser, ( req, res ) => {
+    let {nombre, email, password, calendario} = req.body;
+
+    if(!nombre || !email || !password || !calendario){
+        res.statusMessage = "Parameter missing in the body of the request.";
+        return res.status( 406 ).end();
+    }
+    
+    bcrypt.hash( password, 10 )
+        .then( hashedPassword => {
+            let newProfesional = {
+                nombre : nombre,
+                password : hashedPassword, 
+                email : email,
+                calendario : calendario
+            };
+
+            Profesionales
+                .crearProfesional( newProfesional )
+                .then( result => {
+                    return res.status( 201 ).json( result ); 
+                })
+                .catch( err => {
+                    res.statusMessage = err.message;
+                    return res.status( 400 ).end();
+                });
+        })
+        .catch( err => {
+            res.statusMessage = err.message;
+            return res.status( 400 ).end();
+        });
+});
+
 
 app.post( '/api/profesionales/signupcontitulo', jsonParser, ( req, res ) => {
     let {nombre, email, password, titulo} = req.body;
@@ -560,7 +689,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
             return res.status( 400 ).end();
         }
 
-        let { profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo} = req.body;
+        let { profesional_id, nombre, telefono, email, certificaciones, especialidades, calendario, titulo} = req.body;
 
         if( !profesional_id ){
             res.statusMessage = "Parameter missing in the body of the request.";
@@ -577,7 +706,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
             }
 
             Profesionales
-                .updateProfesionalInfo( profesional_id, nombre, telefono, email, certificaciones, especialidades, titulo)
+                .updateProfesionalInfo( profesional_id, nombre, telefono, email, certificaciones, especialidades, calendario, titulo)
                 .then( result => {
 
                     if ( result.n == 0 ){
@@ -612,7 +741,7 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
 
 // Crear nuevo articulo
 app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
-    let {title, summary, text, category} = req.body;
+    let {title, summary, text, category, video} = req.body;
 
     if(!title || !summary || !text || !category){
         res.statusMessage = "Parameter missing in the body of the request.";
@@ -623,7 +752,8 @@ app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
             title : title,
             summary : summary, 
             text : text,
-            category : category
+            category : category,
+            video: video
         };
 
         Articles

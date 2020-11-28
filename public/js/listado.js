@@ -38,6 +38,7 @@ function validateUser(){
                 .then( userJSON => {
   
                     setProfesionales( "Medico General");
+                    setNavNombre(userJSON.nombre);
                     
                 })
                 .catch( err => {
@@ -48,6 +49,13 @@ function validateUser(){
             console.log( err.message );
             window.location.href = "../index.html";
         });
+  }
+
+  function setNavNombre( nombreUsuario)
+  {
+      let nombre1 = document.querySelector("#nombreUsuario");
+
+      nombre1.innerHTML = nombreUsuario;
   }
 
 
@@ -77,13 +85,14 @@ function setProfesionales( titulo ){
 
                     sectProfesionales.innerHTML += `
                     
-                    <div class="col">
-                    <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
+                    <div class="col-3">
                             <div class="prof-element container">
+                            <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
+
                                 <div class="row" style="padding: 0;">
 
                                     <div class="col-4" style="padding: 6px 0 6px 0;">
-                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
+                                        <img src="../img/medico.png" class="rounded-circle z-depth-0 photo" alt="avatar image" height="60">
                                     </div>
                                     <div class="col-8" style="padding: 8px 0 8px 0; text-align: left;">
                                         <div class="prof-name">Dr. ${profesionales[k].nombre}</div>
@@ -92,8 +101,9 @@ function setProfesionales( titulo ){
                                     </div>
 
                                 </div>
+                                </a>
+
                             </div>
-                            </a>
 
                         </div>
                     `

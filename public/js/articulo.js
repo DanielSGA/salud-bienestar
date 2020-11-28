@@ -62,6 +62,8 @@ function setArticulos( idArticle ){
                             <div class="art-text">${articles[k].text}</div>
                         </div>
                     </div>
+                    <!--Video-->
+                    <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-left: 48px;"></iframe>
                     `
                     }
                     if(articles[k].category === "Psicología"){
@@ -92,6 +94,9 @@ function setArticulos( idArticle ){
                                 <div class="art-text">${articles[k].text}</div>
                             </div>
                         </div>
+                        <!--Video-->
+                        <iframe width="420" height="345" src="${articles[k].video}">
+                        </iframe>
                         `
                     }
                     if(articles[k].category === "Nutrición"){
@@ -122,6 +127,9 @@ function setArticulos( idArticle ){
                                 <div class="art-text">${articles[k].text}</div>
                             </div>
                         </div>
+                        <!--Video-->
+                        <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-left: 80px;"></iframe>
+                        </iframe>
                         `
                     }
                     if(articles[k].category === "Ginecología"){
@@ -152,6 +160,9 @@ function setArticulos( idArticle ){
                                 <div class="art-text">${articles[k].text}</div>
                             </div>
                         </div>
+                        <!--Video-->
+                        <iframe width="420" height="345" src="${articles[k].video}">
+                        </iframe>
                         `
                     }
                     if(articles[k].category === "Pediatría"){
@@ -182,6 +193,9 @@ function setArticulos( idArticle ){
                                 <div class="art-text">${articles[k].text}</div>
                             </div>
                         </div>
+                        <!--Video-->
+                        <iframe width="420" height="345" src="${articles[k].video}">
+                        </iframe>
                         `
                     }
                     if(articles[k].category === "Dermatología"){
@@ -212,6 +226,8 @@ function setArticulos( idArticle ){
                                 <div class="art-text">${articles[k].text}</div>
                             </div>
                         </div>
+                        <!--Video-->
+                        <iframe width="560" height="315" src="${articles[k].video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         `
                     }
                     

@@ -59,14 +59,15 @@ function validateUser(){
       });
 }
 
-function fetchCreateProfesional(nombre, email, password){
+function fetchCreateProfesional(nombre, email, password, calendario){
   let url = '/api/profesionales/signup';
   results = document.querySelector(".results");
 
     let data = {
         nombre,
         email,
-        password
+        password,
+        calendario
     }
 
     let settings = {
@@ -101,13 +102,16 @@ function watchAddProfesional(){
   let inputNombre = document.querySelector("#input_nombre");
   let inputCorreo = document.querySelector("#input_correo");
   let inputPassword = document.querySelector("#input_password");
+  let inputCalendario = document.querySelector("#input_calendario")
+
 
   addBtn.addEventListener( 'click' , ( event ) => {
 
-    fetchCreateProfesional(inputNombre.value, inputCorreo.value, inputPassword.value);
+    fetchCreateProfesional(inputNombre.value, inputCorreo.value, inputPassword.value, inputCalendario.value);
     inputNombre.value = "";
     inputCorreo.value = "";
     inputPassword.value = "";
+    inputCalendario.value = "";
   })
 }
 
@@ -121,6 +125,7 @@ function watchList()
     let inputCorreo = document.querySelector("#input_correo_edit");
     let inputCertificaciones = document.querySelector("#input_certificaciones_edit");
     let inputEspecialidades = document.querySelector("#input_especialidades_edit");
+    let inputCalendario = document.querySelector("#input_calendario_edit")
 
      var elements = document.getElementsByName('optradio');
     var inputTitulo = '';
@@ -181,6 +186,13 @@ function watchList()
             }
             else{
                 inputEspecialidades.value = ``;
+            }
+
+            if (userInfo.calendario != null){
+                inputCalendario.value = `${userInfo.calendario}`;
+            }
+            else{
+                inputCalendario.value = ``;
             }
 
             if (userInfo.titulo != null){
@@ -378,12 +390,12 @@ function popilatePacienteList()
 
 function watchEditProfesionalesBtn(){
     let editBtn = document.querySelector( '.editProfesional' );
-    
     let inputNombre = document.querySelector("#input_nombre_edit");
     let inputTelefono = document.querySelector("#input_telefono_edit");
     let inputCorreo = document.querySelector("#input_correo_edit");
     let inputCertificaciones = document.querySelector("#input_certificaciones_edit");
     let inputEspecialidades = document.querySelector("#input_especialidades_edit");
+    let inputCalendario = document.querySelector("#input_calendario_edit");
 
     let list = document.querySelector("#profesionalList");
 
@@ -406,13 +418,13 @@ function watchEditProfesionalesBtn(){
           }
       });
 
-      updateInfoProf(list.value, inputNombre.value, inputTelefono.value, inputCorreo.value, inputCertificaciones.value, inputEspecialidades.value, inputTitulo);
+      updateInfoProf(list.value, inputNombre.value, inputTelefono.value, inputCorreo.value, inputCertificaciones.value, inputEspecialidades.value, inputCalendario.value, inputTitulo);
       inputNombre.value = "";
       inputTelefono.value = "";
       inputCorreo.value = "";
       inputCertificaciones.value = "";
       inputEspecialidades.value = "";
-
+      inputCalendario.value = "";
       list.value = "ninguno";
       
 
@@ -420,7 +432,7 @@ function watchEditProfesionalesBtn(){
   }
 
   //Update info
-function updateInfoProf(id, inputNombre, inputTelefono, inputCorreo, inputCertificaciones, inputEspecialidades, inputTitulo){
+function updateInfoProf(id, inputNombre, inputTelefono, inputCorreo, inputCertificaciones, inputEspecialidades, inputCalendario, inputTitulo){
 
     results = document.querySelector(".results2");
 
@@ -433,6 +445,7 @@ function updateInfoProf(id, inputNombre, inputTelefono, inputCorreo, inputCertif
         email : inputCorreo,
         certificaciones : inputCertificaciones,
         especialidades : inputEspecialidades,
+        calendario : inputCalendario,
         titulo : inputTitulo
     }
   
