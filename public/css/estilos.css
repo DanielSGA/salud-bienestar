@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* GLOBALES */
+
 html{
 	font-size: 62.5%;
 	box-sizing: border-box;
@@ -26,9 +27,6 @@ nav{
 	align-items: center;
 	text-align: center;
 }
-
-
-
 
 @media (max-width: 700px){
 	#nav{

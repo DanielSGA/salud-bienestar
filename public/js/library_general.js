@@ -1,6 +1,5 @@
 var currentUserId = ";"
 
-
 //Startup
 function validateUser(){
   let url = "/api/validate-user";
