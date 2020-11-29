@@ -85,7 +85,7 @@ function setProfesionales( titulo ){
 
                     sectProfesionales.innerHTML += `
                     
-                    <div class="col-3">
+                    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
                             <div class="prof-element container">
                             <a class = "a2" href="perfil_profesional_vistaPaciente.html?id=${profesionales[k]._id}">
 
@@ -104,7 +104,6 @@ function setProfesionales( titulo ){
                                 </a>
 
                             </div>
-
                         </div>
                     `
                 }

@@ -55,6 +55,18 @@ a{
 	color: black;
 }
 
+.a2:hover {
+	text-decoration: underline;
+}
+
+#articleSummary1 {
+	font-size: 12px;
+}
+
+#articleSummary2 {
+	font-size: 12px;
+}
+
 .color-nav{
 	background-color: #0374b9;
 	z-index: -1;
@@ -113,6 +125,11 @@ p{
 	padding-left: 4em;
 }
 
+.paddingArticle {
+	padding-left: 2em;
+	padding-top: 1em
+}
+
 .marginTop3em{
 	margin-top: 3.5em;
 }
@@ -155,9 +172,9 @@ p{
 
 #logo-nav{
 	margin-top: 3em;
-	width: 8em;
-	height: 8em;
-	border-radius: 5;
+	width: 7em;
+	height: 7em;
+	border-radius: 50%;
 }
 
 #avatar-nav{
@@ -201,7 +218,7 @@ p{
 
 .texto-nav:hover{
 	color: white;
-	font-weight: 500;
+	text-decoration: underline;
 }
 
 /* Rayita abajo de la pestaña activa*/
@@ -216,7 +233,6 @@ p{
 
 #nombreUsuario{
 	font-weight: 500;
-	position: absolute;
 	padding-top: 5px;
 }
 
@@ -261,6 +277,8 @@ a:hover{
 	#logo-nav{
 		height: 3em;
 		width: 3em;
+		margin-left: 4px;
+		margin-right: 4px;
 	}
 
 	.columnas-display-grid, .columnas-avatar-nav{
@@ -452,7 +470,6 @@ form input:placeholder{
 
 .section-header {
 	font-size: 15px;
-	margin-left: -8px;
 
 }
 
@@ -488,6 +505,7 @@ form input:placeholder{
 	font-weight: 300;
 	font-size: 11px;
 	margin-top: 8px;
+	text-align: center;
 }
 
 .button-icon{
@@ -878,7 +896,7 @@ input[type='checkbox'] {
 	box-shadow: 0 4px 11px -4px #cbcbcb;
 	width: 360px;
 	height: 192px;
-	margin: 0 0 40px 0;
+	margin-bottom: 40px;
 }
 
 .cat-name {

@@ -84,18 +84,16 @@ function validateUser(){
         .then( articulos => {
             len = articulos.length - 1
             article1.innerHTML += `
-            <div class="padding1em line-heigh">
+            <div class="paddingArticle line-heigh">
                 <a href="articulo.html?id=${articulos[len]._id}" class="a2">
-                <p id = "articleTitle1" class="bold">${articulos[len].title}</p>
+                <p id = "articleTitle1" class="bold">${articulos[len].title}</p></a>
                 <p id = "articleSummary1" >${articulos[len].summary}</p>
-            </a>
             </div>`
             article2.innerHTML += `
-            <div class="padding1em line-heigh">
+            <div class="paddingArticle line-heigh">
                 <a href="articulo.html?id=${articulos[len-1]._id}" class="a2">
-                <p id = "articleTitle2" class="bold">${articulos[len-1].title}</p>
+                <p id = "articleTitle2" class="bold">${articulos[len-1].title}</p></a>
                 <p id = "articleSummary2" >${articulos[len-1].summary}</p>
-            </a>
             </div>`
         })
         .catch( err => {
