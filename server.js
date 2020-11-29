@@ -739,6 +739,22 @@ app.patch( '/api/profesionales/updateInfo', jsonParser, ( req, res ) =>{
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
+
+//Obtener a todos los articulos
+app.get('/api/articulos', (req, res) => {
+    console.log("Obteniendo una lista de todos los articulos" );
+
+    Articles
+        .getAllArticles()
+        .then( result => {
+            return res.status( 200 ).json( result );
+        })
+        .catch( err => {
+            res.statusMessage = "Something is wrong with the database, try again later.";
+            return res.status( 500 ).end();
+        });
+});
+
 // Crear nuevo articulo
 app.post( '/api/articles/createArticle', jsonParser, ( req, res ) => {
     let {title, summary, text, category, video} = req.body;
