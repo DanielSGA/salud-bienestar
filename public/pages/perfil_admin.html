@@ -29,67 +29,64 @@
         <div class="columnas-pagina-nav-textArea">
             <div>
             <!-- NAVBAR -->
-                <nav class=" container-fluid color-nav text-center" id="nav">
-                    <!-- Logo-->
-                    <div>
-                      <a class="navbar-brand" href="#">
-                        <img src="../img/logo-fondoB.svg" class="circulo-logo" id="logo-nav">
-                      </a>
-                    </div>
-                    <!--End Logo-->
-                    <ul>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="perfil_admin.html" class="active texto-nav"><p>Inicio</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                               <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
-                            </div>
-                            <div>
-                                <a href="" class="texto-nav"><p>Doctores</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="" class="texto-nav"><p>Seguimiento</p></a>
-                            </div>
-                        </li>
-                        <li class="columnas-display-grid">
-                            <div>
-                                <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
-                            </div>
-                            <div>
-                                <a href="library_main.html" class="texto-nav"><p>Bibliotecas</p></a>
-                            </div>
-                        </li>
-                        </li>
-                    </ul>
-
-
-                  
+            <nav class=" container-fluid color-nav text-center" id="nav">
+                <!-- Logo-->
+                <div>
+                  <a class="navbar-brand" href="#">
+                    <img src="../img/logo2.jpg" class="circulo-logo" id="logo-nav">
+                  </a>
+                </div>
+                <!--End Logo-->
+                <ul>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i></a>
+                        </div>
+                        <div class>
+                            <a href="home.html" class="texto-nav"><p>Inicio</p></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                           <a href=""><i class="fa fa-user-md" aria-hidden="true"></i></a> 
+                        </div>
+                        <div>
+                            <a href="listado.html" class="texto-nav"><span>Profesionales de la salud</span></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a href="seguimiento.html" class="texto-nav"><p>Seguimiento</p></a>
+                        </div>
+                    </li>
+                    <li class="columnas-display-grid">
+                        <div>
+                            <a href=""><i class="fa fa-book" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <a href="library_main_UserView.html" class="texto-nav"><p>Bibliotecas</p></a>
+                        </div>
+                    </li>
+                </ul>
+              
+                <!--Avatar -->
+                <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-top: 200px;">
+                    <li class="nav-item avatar columnas-avatar-nav" style= "justify-content: center;">
+                        <div>
+                            <a class="nav-link p-0" href="#" id="avatar-nav">
+                                <img src="../img/usuario.png" class="rounded-circle z-depth-0" alt="avatar image" height="30">
+                            </a>
+                        </div>
+                        <div class="texto-nav">
+                            <a href="perfil.html" id="nombreUsuario" class= "texto-nav"></a>
+                        </div>
+                    </li>
+                </ul>
                     <!--Avatar -->
-                    <ul class="navbar-nav ml-auto nav-flex-icons">
-                        <li class="nav-item avatar columnas-avatar-nav">
-                            <div>
-                                <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="30">
-                                </a>
-                            </div>
-                            <div class="texto-nav">
-                                <a href="" id="nombreUsuario"></a>
-                            </div>
-                        </li>
-                    </ul>
-                        <!--Avatar -->
-                </nav>
+            </nav>
         <!-- END NAVBAR-->
             </div>
 
@@ -97,229 +94,202 @@
             <div id="text-area" class="padding1em">
                 <div class="container-fluid">
                     
-                    <!-- Nombre y foto del paciente-->
-                    <ul class="navbar-nav ml-auto nav-flex-icons">
-                        <li class="nav-item avatar columnas-avatar-title">
-                            <div>
-                                <a class="nav-link p-0" href="#" id="avatar-nav">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="100">
-                                </a>
-                            </div>
-                            <div class="margin-left">
-                                <h4 id="nombreUsuarioTitle" class=""></h4>
-                                <p class = "text_black">Administrador</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <!-- Fin de Nombre y foto del paciente-->
-
-
-                    <div class="columnas-perfil-info">
-                        <!-- Columna Izquierda -->
-                        <div class="container-fluid">
-                            <p class="marginTop2em letras-rojas">Añadir un Profesional de la Salud</p>
-                            <p class= "margin-left marginTopem margin-bottom"> Para añadir a un profesional de la salud a la plataforma solo se requiere su nombre, correo, y contraseña. El resto de la Información
-                                la llenará el profesional en su perfíl.
-                            </p>
-
-                            <form>
-                                 <!-- NOMBRE -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Nombre Completo</p>
-                                    <input type="text" id="input_nombre" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
-                                </div>
-                                 <!-- EMAIL -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold">Correo</p>
-                                    <input type="text" id="input_correo" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
-                                </div>
-                                 <!-- PASSWORD -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold">Contraseña</p>
-                                    <input type="text" id="input_password" placeholder="Contraseña" name="password" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- CALENDARIO-->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Calendario</p>
-                                    <input type="text" id="input_calendario" placeholder="Link Calendario" name="calendario" class = "userInput"  autocomplete="off">
-                                </div>
-
-                                <div class= "results margin-left">
-                                </div>
-                                
-                                <div>
-                                    <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
-                                    <button type="button" class = "line-height boton-perfil-diseño margin-sides addBtn">AÑADIR</button> 
-                                </div>
-                            </form>
+                    <!-- Título-->
+                    <div class="row">
+                        <div class="col">
+                            <div class="title">Panel de Administrador</div>
                         </div>
-                        <!-- Fin Columna Izquierda -->
+                    </div><br>
 
-                        <!-- Columna Derecha -->
-                        <div class="container-fluid">
-                            <p class="marginTop2em letras-rojas">Editar la información de un Profesional de la Salud</p>
-                            <p class= "margin-left marginTopem margin-bottom"> Primero escoge en la lista el profesional, y escribe en los campos que desees modificar.
-                            </p>
-
-                            <form>
-                                 <!-- PROFESIONAL -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold"> Profesional de la Salud</p>
-                                    <select id = "profesionalList">
-                                        <option value = "0">ninguno</option>
-                                    </select>
-                                </div>
-                                 <!-- NOMBRE -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Nombre Completo</p>
-                                    <input type="text" id="input_nombre_edit" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
-                                </div>
-                                 <!-- EMAIL -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold">Correo</p>
-                                    <input type="text" id="input_correo_edit" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- TELEFONO -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Teléfono</p>
-                                    <input type="text" id="input_telefono_edit" placeholder="Teléfono" name="telefono" class = "userInput"  autocomplete="off">
-                                </div>
-                                 <!-- CERTIFICACIONES -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold">Certificaciones</p>
-                                    <input type="text" id="input_certificaciones_edit" placeholder="Certificaciones" name="certificaciones" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- AREAS DE ESPECIALIDAD -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Áreas de Especialidad</p>
-                                    <input type="text" id="input_especialidades_edit" placeholder="Especialidades" name="especialidades" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- CALENDARIO-->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Calendario</p>
-                                    <input type="text" id="input_calendario_edit" placeholder="Link Calendario" name="calendario" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- Titulo -->
-                                <div class="margin-left editContainer">
-                                    <p class="bold">Título</p>
-                                    <form class = 'formTitulo'>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Medico General">Médico General
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Psicologo">Psicólogo
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Nutriologo">Nutriologo
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Ginecologo">Ginecólogo
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Pediatra">Pediatra
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optradio" value = "Dermatologo">Dermatólogo
-                                    </label>
-                                    </form>
-                                </div>
-
-                                <div class= "results2 margin-left">
-                                </div>
-                                
-                                <div>
-                                    <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
-                                    <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn editProfesional">EDITAR</button> 
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Fin Columna Derecha -->
-
-                        <!-- Columna Izquierda Segundo Renglon-->
-                        <div class="container-fluid">
-                            <p class="marginTop2em letras-rojas">Editar la información de un Paciente</p>
-                            <p class= "margin-left marginTopem margin-bottom"> Primero escoge en la lista el paciente, y escribe en los campos que desees modificar.
-                            </p>
-
-                            <form>
-                                 <!-- PROFESIONAL -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold"> Paciente</p>
-                                    <select id = "pacienteList">
-                                        <option value = "0">ninguno</option>
-                                    </select>
-                                </div>
-                                 <!-- NOMBRE -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Nombre Completo</p>
-                                    <input type="text" id="input_nombre_edit_paciente" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
-                                </div>
-                                 <!-- EMAIL -->
-                                 <div class ="margin-left editContainer">
-                                    <p class = "bold">Correo</p>
-                                    <input type="text" id="input_correo_edit_paciente" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- EDAD -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Edad</p>
-                                    <input type="text" id="input_edad_edit_paciente" placeholder="Edad" name="edad" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- SEXO -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Sexo</p>
-                                    <input type="text" id="input_sexo_edit_paciente" placeholder="Sexo" name="sexo" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- TELEFONO -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Teléfono</p>
-                                    <input type="text" id="input_telefono_edit_paciente" placeholder="Teléfono" name="telefono" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- ANTECEDENTES -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Antecedentes Médicos</p>
-                                    <input type="text" id="input_antecedentes_edit_paciente" placeholder="Antecedentes Médicos" name="antecedentes" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- MEDICAMENTOS -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Medicamentos Actuales</p>
-                                    <input type="text" id="input_medicamentos_edit_paciente" placeholder="Medicamentos Actuales" name="medicamentos" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- ALERGIAS -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Alergias</p>
-                                    <input type="text" id="input_alergias_edit_paciente" placeholder="Alergias" name="alergias" class = "userInput"  autocomplete="off">
-                                </div>
-                                <!-- DISCAPACIDADES -->
-                                <div class ="margin-left editContainer">
-                                    <p class = "bold">Discapacidades</p>
-                                    <input type="text" id="input_discapacidades_edit_paciente" placeholder="Discapacidades" name="discapacidades" class = "userInput"  autocomplete="off">
-                                </div>
-
-                                <div class= "results3 margin-left">
-                                </div>
-                                
-                                <div>
-                                    <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
-                                    <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn editPaciente">EDITAR</button> 
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Fin Columna Izquierda Segundo Renglon -->
-                        
-
-                        <div class="botones-perfil">
-                           
-                            <div>
-                                <!--<p class="line-height boton-perfil-diseño margin-sides">HISTORIAL MÉDICO</p> -->
-                                <a href ="https://assets.calendly.com/assets/external/widget.css">
-
-                                <!-- Calendly link widget begin -->
-                                <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-                                <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-                                <!-- Calendly badge widget end -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container-fluid profile-box">
+                                <p class="marginTop2em letras-rojas">Añadir un Profesional de la Salud</p>
+                                <p class= "margin-left marginTopem margin-bottom"> Para añadir a un profesional de la salud a la plataforma solo se requiere su nombre, correo, y contraseña. El resto de la Información
+                                    la llenará el profesional en su perfíl.
+                                </p>
+    
+                                <form>
+                                     <!-- NOMBRE -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Nombre</p>
+                                        <input type="text" id="input_nombre" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
+                                    </div>
+                                     <!-- EMAIL -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold">Correo</p>
+                                        <input type="text" id="input_correo" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
+                                    </div>
+                                     <!-- PASSWORD -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold">Contraseña</p>
+                                        <input type="text" id="input_password" placeholder="Contraseña" name="password" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- CALENDARIO-->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Calendario</p>
+                                        <input type="text" id="input_calendario" placeholder="Link Calendario" name="calendario" class = "userInput"  autocomplete="off">
+                                    </div>
+    
+                                    <div class= "results margin-left">
+                                    </div>
+                                    
+                                    <div>
+                                        <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
+                                        <button type="button" class = "line-height boton-perfil-diseño margin-sides addBtn">AÑADIR</button> 
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
+                        <div class="col-12">
+                            <div class="container-fluid profile-box">
+                                <p class="marginTop2em letras-rojas">Editar la información de un Profesional de la Salud</p>
+                                <p class= "margin-left marginTopem margin-bottom"> Primero escoge en la lista el profesional, y escribe en los campos que desees modificar.
+                                </p>
+    
+                                <form>
+                                     <!-- PROFESIONAL -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold"> Profesional de la Salud</p>
+                                        <select id = "profesionalList">
+                                            <option value = "0">ninguno</option>
+                                        </select>
+                                    </div>
+                                     <!-- NOMBRE -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Nombre Completo</p>
+                                        <input type="text" id="input_nombre_edit" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
+                                    </div>
+                                     <!-- EMAIL -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold">Correo</p>
+                                        <input type="text" id="input_correo_edit" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- TELEFONO -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Teléfono</p>
+                                        <input type="text" id="input_telefono_edit" placeholder="Teléfono" name="telefono" class = "userInput"  autocomplete="off">
+                                    </div>
+                                     <!-- CERTIFICACIONES -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold">Certificaciones</p>
+                                        <input type="text" id="input_certificaciones_edit" placeholder="Certificaciones" name="certificaciones" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- AREAS DE ESPECIALIDAD -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Áreas de Especialidad</p>
+                                        <input type="text" id="input_especialidades_edit" placeholder="Especialidades" name="especialidades" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- CALENDARIO-->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Calendario</p>
+                                        <input type="text" id="input_calendario_edit" placeholder="Link Calendario" name="calendario" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- Titulo -->
+                                    <div class="margin-left editContainer">
+                                        <p class="bold">Título</p>
+                                        <form class = 'formTitulo'>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Medico General">Médico General
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Psicologo">Psicólogo
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Nutriologo">Nutriologo
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Ginecologo">Ginecólogo
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Pediatra">Pediatra
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" value = "Dermatologo">Dermatólogo
+                                        </label>
+                                        </form>
+                                    </div>
+    
+                                    <div class= "results2 margin-left">
+                                    </div>
+                                    
+                                    <div>
+                                        <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
+                                        <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn editProfesional">EDITAR</button> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="container-fluid profile-box">
+                                <p class="marginTop2em letras-rojas">Editar la información de un Paciente</p>
+                                <p class= "margin-left marginTopem margin-bottom"> Primero escoge en la lista el paciente, y escribe en los campos que desees modificar.
+                                </p>
+    
+                                <form>
+                                     <!-- PROFESIONAL -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold"> Paciente</p>
+                                        <select id = "pacienteList">
+                                            <option value = "0">ninguno</option>
+                                        </select>
+                                    </div>
+                                     <!-- NOMBRE -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Nombre Completo</p>
+                                        <input type="text" id="input_nombre_edit_paciente" placeholder="Nombre Completo" name="nombre" class = "userInput" autocomplete="off">
+                                    </div>
+                                     <!-- EMAIL -->
+                                     <div class ="margin-left editContainer">
+                                        <p class = "bold">Correo</p>
+                                        <input type="text" id="input_correo_edit_paciente" placeholder="Correo" name="correo" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- EDAD -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Edad</p>
+                                        <input type="text" id="input_edad_edit_paciente" placeholder="Edad" name="edad" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- SEXO -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Sexo</p>
+                                        <input type="text" id="input_sexo_edit_paciente" placeholder="Sexo" name="sexo" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- TELEFONO -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Teléfono</p>
+                                        <input type="text" id="input_telefono_edit_paciente" placeholder="Teléfono" name="telefono" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- ANTECEDENTES -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Antecedentes Médicos</p>
+                                        <input type="text" id="input_antecedentes_edit_paciente" placeholder="Antecedentes Médicos" name="antecedentes" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- MEDICAMENTOS -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Medicamentos Actuales</p>
+                                        <input type="text" id="input_medicamentos_edit_paciente" placeholder="Medicamentos Actuales" name="medicamentos" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- ALERGIAS -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Alergias</p>
+                                        <input type="text" id="input_alergias_edit_paciente" placeholder="Alergias" name="alergias" class = "userInput"  autocomplete="off">
+                                    </div>
+                                    <!-- DISCAPACIDADES -->
+                                    <div class ="margin-left editContainer">
+                                        <p class = "bold">Discapacidades</p>
+                                        <input type="text" id="input_discapacidades_edit_paciente" placeholder="Discapacidades" name="discapacidades" class = "userInput"  autocomplete="off">
+                                    </div>
+    
+                                    <div class= "results3 margin-left">
+                                    </div>
+                                    
+                                    <div>
+                                        <!--<p class="line-height boton-perfil-diseño margin-sides editBtn">EDITAR PERFIL</p> -->
+                                        <button type="button" class = "line-height boton-perfil-diseño margin-sides editBtn editPaciente">EDITAR</button> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
