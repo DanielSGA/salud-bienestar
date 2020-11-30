@@ -411,5 +411,26 @@ form.sign-up-form{
 }
 
 @media (max-width: 450px) {
-    
+    .input-field{
+        height: 35px;
+    }
+
+    .signin-signup{
+        width: 100%;
+        left: 50%;
+        top: 90%;
+    }
+
+    .input-field i{
+        line-height: 35px;
+    }
+
+    .container.sign-up-mode:before{
+        transform: translate(-50%, 102%);
+    }
+
+    .content{
+        margin-bottom: 35px;
+    }
+
 }
