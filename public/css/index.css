@@ -235,7 +235,7 @@ form.sign-up-form{
 
 
 
-.logo, .content {   
+.logo {   
     animation-name: floating; 
     animation-duration: 3s; 
     animation-iteration-count: infinite; 
@@ -313,7 +313,7 @@ form.sign-up-form{
         width: 100%;
         left: 50%;
         top: 95%;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -98%);
         transition: 1s 0.8s ease-in-out;
     }
     
@@ -395,6 +395,10 @@ form.sign-up-form{
         padding: 0.5rem 1rem;
     }
 
+    .left-panel, .right-panel{
+        padding: 0;
+    }
+
     .container:before{
         bottom: 72%;
         left: 50%;
@@ -404,4 +408,29 @@ form.sign-up-form{
         bottom: 28%;
         left: 50%;
     }
+}
+
+@media (max-width: 450px) {
+    .input-field{
+        height: 35px;
+    }
+
+    .signin-signup{
+        width: 100%;
+        left: 50%;
+        top: 90%;
+    }
+
+    .input-field i{
+        line-height: 35px;
+    }
+
+    .container.sign-up-mode:before{
+        transform: translate(-50%, 102%);
+    }
+
+    .content{
+        margin-bottom: 35px;
+    }
+
 }

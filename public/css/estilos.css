@@ -285,6 +285,14 @@ p{
 	color: #000;
 }
 
+#text-area2{
+	border-radius: 2.5em 0 0 2.5em;
+	width: 90%;
+/*	height: 100%;
+*/	background-color: #FBFBFB;
+	color: #000;
+}
+
 .columnas-pagina-nav-textArea{
 	display: flex;
 	justify-content: space-around;
