@@ -40,6 +40,11 @@ function validateUser(){
                     getConsultas(userJSON)
                     
                 })
+                .then( userJSON => {
+  
+                    setNombres(userJSON.nombre)
+                    
+                })
                 .catch( err => {
                     console.log( err.message );
                 });
@@ -93,6 +98,14 @@ function fetchProfesionalName( profID)
           console.log( err.message );
       });
  }
+
+ function setNombres( nombreUsuario)
+{
+    let nombre1 = document.querySelector("#nombreUsuario");
+
+    nombre1.innerHTML = nombreUsuario;
+
+}
   
 
  function setConsultas( consultas)

@@ -39,6 +39,7 @@ function validateUser(){
   
                     setProfesionales( "Medico General");
                     setNombres(userJSON.nombre);
+                    setArticulos();
                     
                 })
                 .catch( err => {
@@ -59,6 +60,47 @@ function validateUser(){
       nombre1.innerHTML = nombreUsuario;
       nombre2.innerHTML = `Bienvenido, ${nombreUsuario}`;
 
+  }
+
+  function setArticulos( ){
+
+    let article1 = document.querySelector("#article1");
+
+    let article2 = document.querySelector("#article2");
+
+
+    let url = `/api/articulos`;
+
+    let settings = {
+        method : 'GET'}
+
+        fetch( url, settings )
+        .then( response => {
+            if( response.ok ){
+                return response.json();
+            }
+            throw new Error( response.statusText );
+        })
+        .then( articulos => {
+            len = articulos.length - 1
+            article1.innerHTML += `
+            <div class="paddingArticle line-heigh">
+                <a href="articulo.html?id=${articulos[len]._id}" class="a2">
+                <p id = "articleTitle1" class="bold">${articulos[len].title}</p></a>
+                <p id = "articleSummary1" >${articulos[len].summary}</p>
+            </div>`
+            article2.innerHTML += `
+            <div class="paddingArticle line-heigh">
+                <a href="articulo.html?id=${articulos[len-1]._id}" class="a2">
+                <p id = "articleTitle2" class="bold">${articulos[len-1].title}</p></a>
+                <p id = "articleSummary2" >${articulos[len-1].summary}</p>
+            </div>`
+        })
+        .catch( err => {
+            console.log( err.message );
+
+        });
+    
   }
 
 

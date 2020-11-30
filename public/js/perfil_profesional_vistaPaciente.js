@@ -1,16 +1,5 @@
 var currentUserId = ";"
 
-// Buscador
-function openSearch() {
-  document.getElementById("overlay").style.display = "block";
-}
-
-function closeSearch(){
-  document.getElementById("overlay").style.display = "none";
-}
-// Fin de Buscador
-
-
 //Startup
 function validateUser(){
   let url = "/api/validate-user";
@@ -59,7 +48,6 @@ function validateUser(){
           window.location.href = "../index.html";
       });
 }
-
 
 function setNombres( nombreUsuario)
 {

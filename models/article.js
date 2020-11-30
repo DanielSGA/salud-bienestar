@@ -33,6 +33,16 @@ const articleSchema = mongoose.Schema({
 const articleModel = mongoose.model('articles', articleSchema);
 
 const Articles = {
+    getAllArticles : function(){
+        return articleModel
+                .find()
+                .then( articles => {
+                    return articles;
+                })
+                .catch( err => {
+                    return err;
+                });
+    },
     createArticle : function( newArticle ){
         return articleModel
                 .create( newArticle )

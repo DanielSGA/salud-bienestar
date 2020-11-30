@@ -47,6 +47,7 @@ function validateUser(){
               .then( userJSON => {
 
                   setProfile( userJSON );
+                  setNombres(userJSON.nombre);
                   
               })
               .catch( err => {
@@ -59,7 +60,13 @@ function validateUser(){
       });
 }
 
+function setNombres( nombreUsuario)
+{
+    let nombre1 = document.querySelector("#nombreUsuario");
 
+    nombre1.innerHTML = nombreUsuario;
+
+}
 
 //Get all info
 function setProfile( responseJSON ){

@@ -228,6 +228,26 @@ form.sign-up-form{
     padding-bottom: 5em;
 }
 
+.btn:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 999;
+}
+
+
+
+.logo, .content {   
+    animation-name: floating; 
+    animation-duration: 3s; 
+    animation-iteration-count: infinite; 
+    animation-timing-function: ease-in-out; 
+} 
+  
+@keyframes floating { 
+    0% { transform: translate(0,  0px); } 
+    50%  { transform: translate(0, 10px); } 
+    100%   { transform: translate(0, -0px); }     
+} 
+
 .right-panel .content, .right-panel .image{
     transform: translateX(800px);
 }
@@ -283,7 +303,7 @@ form.sign-up-form{
         height: 1500px;
         left: 30%;
         bottom: 60%;
-        transform: translateX(-50%);
+        transform: translate(-50%,-5%);
         right: initial;
         top: initial;
         transition: 2s ease-in-out;
@@ -348,7 +368,7 @@ form.sign-up-form{
     }
 
     .container.sign-up-mode:before{
-        transform: translate(-50%, 100%);
+        transform: translate(-50%, 104%);
         bottom: 32%;
         right: initial;
     }
@@ -370,9 +390,6 @@ form.sign-up-form{
         padding: 0 1.5rem;
     }
 
-    .image{
-        display: none;
-    }
 
     .panel .content{
         padding: 0.5rem 1rem;
