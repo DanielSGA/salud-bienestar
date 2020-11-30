@@ -70,7 +70,7 @@ app.get( '/api/get-userby_id', jsonParser, ( req, res ) => {
         .getUserByID( id )
         .then( result => {
 
-            if (result.length == 0){
+            if (!result){
                 res.statusMessage = `No Users with the id = ${id} were found on the list.`;
                 return res.status ( 404 ).end();
             }
