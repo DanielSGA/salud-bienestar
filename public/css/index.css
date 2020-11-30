@@ -235,7 +235,7 @@ form.sign-up-form{
 
 
 
-.logo, .content {   
+.logo {   
     animation-name: floating; 
     animation-duration: 3s; 
     animation-iteration-count: infinite; 
@@ -313,7 +313,7 @@ form.sign-up-form{
         width: 100%;
         left: 50%;
         top: 95%;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -98%);
         transition: 1s 0.8s ease-in-out;
     }
     
@@ -393,6 +393,10 @@ form.sign-up-form{
 
     .panel .content{
         padding: 0.5rem 1rem;
+    }
+
+    .left-panel, .right-panel{
+        padding: 0;
     }
 
     .container:before{
