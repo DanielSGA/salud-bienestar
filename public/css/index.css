@@ -409,3 +409,7 @@ form.sign-up-form{
         left: 50%;
     }
 }
+
+@media (max-width: 450px) {
+    
+}
