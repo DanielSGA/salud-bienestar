@@ -10,7 +10,7 @@ El proyecto es una aplicación web responsiva con el propósito de brindar a com
 | Adrian Alvarez     | alvarezprosalud@gmail.com | Fundador |
 
 
-### Da team
+### The team
 
 | Name           | Email             | Role        |
 | -------------- | ----------------- | ----------- |
@@ -31,166 +31,81 @@ El proyecto es una aplicación web responsiva con el propósito de brindar a com
 | body-parser   | 1.19.0       |
 | bcrypt        | 5.0.0        |
 | Bootstrap     | 4.4          |
+| Calendly      | Pro          |
 
 ### Management tools
 
-* [Github repo](https://github.com/ProyectoIntegrador2018/salud-bienestar/edit/working-branch)
+* [Github repo](https://github.com/ProyectoIntegrador2018/salud-bienestar)
 * [Trello](https://trello.com/b/euxPNbrG/balance-innovation)
-* [Heroku]()
+* [Heroku](https://dashboard.heroku.com/apps/med-conecta)
 * [Documentation](https://teams.microsoft.com/_#/school/files/Equipo%202.05%20-%20Balance%20Innovation?threadId=19:e25d83dca1fe4c4ebd22f7dfbcfbe300@thread.tacv2&ctx=channel)
 
 ## Development
 
-### Setup the project
+### Setup del proyecto
 
-You'll definitely want to install [`plis`](https://github.com/IcaliaLabs/plis), as in this case will
-let you bring up the containers needed for development. This is done by running the command
-`plis start`, which will start up the services in the `development` group (i.e. rails
-and sidekiq), along with their dependencies (posgres, redis, etc).
+Para instalar y hacer el setup del proyecto sigue los pasos de instalación y clonación:
 
-After installing please you can follow this simple steps:
+1. Instala npm en tu computadora:
+```bash
+$ brew install npm
+```
 
-1. Clone this repository into your local machine
+2. Clona este repositorio a tu computadora
 
 ```bash
-$ git clone git@github.com:IcaliaLabs/crowdfront.git
+$ gh repo clone ProyectoIntegrador2018/salud-bienestar
 ```
 
-2. Fire up a terminal and run:
+3. Abre la terminal y corre el siguiente comando para instalar las librerías necesitadas para el proyecto
 
 ```bash
-$ plis run web bash
+$ npm install
 ```
 
-3. Inside the container you need to migrate the database:
+4. Ahora corre el siguiente comando para comenzar el proyecto en localhost:8080
 
 ```
-% rails db:migrate
+% npm start
 ```
 
-### Running the stack for Development
 
-1. Fire up a terminal and run: 
+### Detener el proyecto
 
-```
-plis start
-```
-
-That command will lift every service crowdfront needs, such as the `rails server`, `postgres`, and `redis`.
-
-
-It may take a while before you see anything, you can follow the logs of the containers with:
+Para detener todo el proyecto corriendo en localhost:8080 es necesario pulsar la combinación de teclas **ctrl + c** o **command + c**
 
 ```
-$ docker-compose logs
+% ctrl + c
 ```
 
-Once you see an output like this:
 
+### Deploy to Heroku using Heroku CLI
+
+Para hacer el deploy de la versión actual del proyecto a Heroku para que se refleje en el servidor y en el dominio es necesario seguir los siguientes pasos:
+
+1. Hacer merge a master de todos los nuevos cambios en la working-branch
+2. Instalar Heroku CLI de la página de Heroku
+3. Cambiar de branch a Master
+```bash
+$ git checkout master
 ```
-web_1   | => Booting Puma
-web_1   | => Rails 5.1.3 application starting in development on http://0.0.0.0:3000
-web_1   | => Run `rails server -h` for more startup options
-web_1   | => Ctrl-C to shutdown server
-web_1   | Listening on 0.0.0.0:3000, CTRL+C to stop
+4. Agregar los cambios a la branch Heroku Master
+```bash
+$ git add .
 ```
-
-This means the project is up and running.
-
-### Stop the project
-
-In order to stop crowdfront as a whole you can run:
-
+5. Hacer commit de los cambios con su comentario
+```bash
+$ git commit -am "Comentario"
 ```
-% plis stop
-```
-
-This will stop every container, but if you need to stop one in particular, you can specify it like:
-
-```
-% plis stop web
-```
-
-`web` is the service name located on the `docker-compose.yml` file, there you can see the services name and stop each of them if you need to.
-
-### Restoring the database
-
-You probably won't be working with a blank database, so once you are able to run crowdfront you can restore the database, to do it, first stop all services:
-
-```
-% plis stop
-```
-
-Then just lift up the `db` service:
-
-```
-% plis start db
-```
-
-The next step is to login to the database container:
-
-```
-% docker exec -ti crowdfront_db_1 bash
-```
-
-This will open up a bash session in to the database container.
-
-Up to this point we just need to download a database dump and copy under `crowdfront/backups/`, this directory is mounted on the container, so you will be able to restore it with:
-
-```
-root@a3f695b39869:/# bin/restoredb crowdfront_dev db/backups/<databaseDump>
-```
-
-If you want to see how this script works, you can find it under `bin/restoredb`
-
-Once the script finishes its execution you can just exit the session from the container and lift the other services:
-
-```
-% plis start
+6. Hacer deploy a Heroku
+```bash
+$ git push heroku master
 ```
 
 ### Debugging
 
-We know you love to use `debugger`, and who doesn't, and with Docker is a bit tricky, but don't worry, we have you covered.
-
-Just run this line at the terminal and you can start debugging like a pro:
+Si ya se tiene instalado npm y ya se hizo el install, sólo corre el siguiente comando para ver errores en el sistema que se desplegarán en la terminal:
 
 ```
-% plis attach web
+% npm start
 ```
-
-This will display the logs from the rails app, as well as give you access to stop the execution on the debugging point as you would expect.
-
-**Take note that if you kill this process you will kill the web service, and you will probably need to lift it up again.**
-
-### Running specs
-
-To run specs, you can do:
-
-```
-$ plis run test rspec
-```
-
-Or for a specific file:
-
-```
-$ plis run test rspec spec/models/user_spec.rb
-```
-
-### Checking code for potential issues
-
-To run specs, you can do:
-
-```
-$ plis run web reek
-```
-
-```
-$ plis run web rubocop
-```
-
-```
-$ plis run web scss_lint
-```
-
-Or any other linter you have.
